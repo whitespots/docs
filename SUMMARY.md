@@ -40,4 +40,6 @@
 
 * [SQL injections](hack-space/sql-injections.md)
 * [Remote Code Execution](hack-space/remote-code-execution.md)
+* [Bypasses](hack-space/bypasses.md)
+* [Takeovers](hack-space/takeovers.md)
 

