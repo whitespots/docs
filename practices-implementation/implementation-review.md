@@ -2,7 +2,7 @@
 description: Internal review before production
 ---
 
-# Code review
+# Implementation review
 
 You can build this practice **not only as an independent** one but also as a part of the SDLC
 
@@ -10,7 +10,7 @@ You can build this practice **not only as an independent** one but also as a par
 
 ## What will you get
 
-* The list of the code issues and fix steps
+* The list of the implementation issues and fix steps
 
 ## What will change
 
@@ -18,8 +18,8 @@ You can build this practice **not only as an independent** one but also as a par
 
 ## What is the process
 
-* Commit and push your changes
-* Get issues from CI stage report
+* Deploy your changes to the testing environment
+* Get issues from the scanner/CI stage report
 * Fix these issues by priority
 
 It can be helpful here, if your team has any questions:
@@ -28,9 +28,9 @@ It can be helpful here, if your team has any questions:
 
 ## Tools
 
-{% page-ref page="../tools/scanners/sast.md" %}
+{% page-ref page="../useful-tools/scanners/dast.md" %}
 
-{% page-ref page="../tools/scanners/dependency-checker.md" %}
+{% page-ref page="../useful-tools/scanners/cloud-security.md" %}
 
 ## Have questions?
 

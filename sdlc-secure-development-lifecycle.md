@@ -22,11 +22,11 @@ Business target:
 
 **Security practices**
 
-{% page-ref page="practices/design-review.md" %}
+{% page-ref page="practices-implementation/design-review.md" %}
 
 It can be helpful here, if your team has any questions:
 
-{% page-ref page="practices/security-champions.md" %}
+{% page-ref page="practices-implementation/security-champions.md" %}
 
 
 
@@ -46,24 +46,24 @@ Details:
 
 **Security practices**
 
-{% page-ref page="practices/design-review.md" %}
+{% page-ref page="practices-implementation/design-review.md" %}
 
 It can be helpful here, if your team has any questions:
 
-{% page-ref page="practices/security-champions.md" %}
+{% page-ref page="practices-implementation/security-champions.md" %}
 
 ### 3. Development & Testing
 
 After development knows what to do, features will be developed and tested.   
 We need to implement 2 **Security practices** here
 
-{% page-ref page="practices/code-review.md" %}
+{% page-ref page="practices-implementation/code-review.md" %}
 
-{% page-ref page="practices/implementation-review.md" %}
+{% page-ref page="practices-implementation/implementation-review.md" %}
 
 It can be helpful here, if your team has any questions:
 
-{% page-ref page="practices/security-champions.md" %}
+{% page-ref page="practices-implementation/security-champions.md" %}
 
 After each step, the R&D team should have an understanding of the code and implementation quality.  
 That's why it's very important to send them as better and as more detailed reports as you can.  
@@ -79,9 +79,9 @@ Finally, we really need to monitor all suspicious activity and look for anything
 
 **Security practices**
 
-{% page-ref page="practices/asset-discovery.md" %}
+{% page-ref page="practices-implementation/asset-discovery.md" %}
 
-{% page-ref page="practices/bugbounty.md" %}
+{% page-ref page="practices-implementation/bugbounty.md" %}
 
 ## Have questions?
 

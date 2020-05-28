@@ -28,7 +28,7 @@ It can be helpful here, if your team has any questions:
 
 ## Tools
 
-{% page-ref page="../tools/scanners/discovery-tools.md" %}
+{% page-ref page="../useful-tools/scanners/discovery-tools.md" %}
 
 ## Have questions?
 
