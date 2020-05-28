@@ -6,9 +6,10 @@ description: Understand all possible ways to attack your company (mostly for C-L
 
 ## Requirements
 
-1. Make a [products catalog](products-catalog.md)
-2. Ask product owners, what are they afraid of?
-3. Ask product owners more about how their product works As a security engineer, you need to get all critical functions and imagine all ways to hack it
+1. **Only product owner / CEO can take risks As a security engineer, you should operate with business impacts, which business defines as the most unwanted scenarios**
+2. Make a [products catalog](products-catalog.md)
+3. Ask product owners, what are they afraid of?
+4. Ask product owners more about how their product works As a security engineer, you need to get all critical functions and imagine all ways to hack it
 
 ## Examples
 
