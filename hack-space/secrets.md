@@ -1,5 +1,9 @@
 # Secrets
 
+## Tool
+
+[Whitespots secrets hunter extension](https://addons.mozilla.org/en-US/firefox/addon/whitespots-dom-secrets-hunter/)
+
 ## Google Maps Key
 
 ```markup
