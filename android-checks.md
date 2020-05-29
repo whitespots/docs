@@ -134,6 +134,10 @@ A known and difficult error in the Android privilege system is the ability to ac
 
 Look for sensitive info in Strings resources
 
+### Automate your checks
+
+{% page-ref page="useful-tools/services/mobsf.md" %}
+
 ### Tools
 
 * Mercury \([http://labs.mwrinfosecurity.com/tools/2012/03/16/mercury/](http://labs.mwrinfosecurity.com/tools/2012/03/16/mercury/)\) For DB and intents
