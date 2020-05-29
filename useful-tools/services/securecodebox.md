@@ -36,6 +36,8 @@ docker-compose up -d
 
 ## Have questions?
 
+Write to us and get a **free** consultation.
+
 **Website**: [whitespots.io](https://whitespots.io/?utm=appsecwiki)   
 **Email**: [sales@whitespots.io](mailto:sales@whitespots.io)
 
