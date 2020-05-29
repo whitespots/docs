@@ -26,7 +26,7 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
 ## Gophish
 
 ```text
-docker run -d --name --network=mailserver_default gophish -p 3333:3333 -p 80:80 matteoggl/gophish
+docker run -d --name gophish -p 3333:3333 -p 80:80 matteoggl/gophish
 ```
 
 
