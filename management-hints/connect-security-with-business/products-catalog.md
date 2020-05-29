@@ -51,7 +51,9 @@ description: Control your products and have all important info in one place
       </td>
     </tr>
   </tbody>
-</table>{% hint style="info" %}
+</table>
+
+{% hint style="info" %}
 You will learn, how to fill the "**Risks**" column from [here](risks-analysis.md)
 {% endhint %}
 

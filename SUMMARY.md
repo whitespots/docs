@@ -37,9 +37,12 @@
 
 ## Hack space
 
-* [SQL injections](hack-space/sql-injections.md)
-* [Remote Code Execution](hack-space/remote-code-execution.md)
-* [Bypasses](hack-space/bypasses.md)
-* [Takeovers](hack-space/takeovers.md)
-* [Secrets](hack-space/secrets.md)
+* [WEB](hack-space/web/README.md)
+  * [Takeovers](hack-space/web/takeovers.md)
+  * [Bypasses](hack-space/web/bypasses.md)
+  * [Remote Code Execution](hack-space/web/remote-code-execution.md)
+  * [SQL injections](hack-space/web/sql-injections.md)
+* [OSINT](osint/README.md)
+  * [Secrets](osint/secrets.md)
+* [Mobile](mobile.md)
 

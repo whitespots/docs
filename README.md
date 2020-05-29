@@ -10,3 +10,23 @@ Website: [**whitespots.io**](https://whitespots.io/?utm=appsecwiki)
 Email: [**services@whitespots.io**](mailto:services@whitespots.io)   
 Telegram: **@**[**httpnotonly**](https://t.me/httpnotonly)
 
+## Sections
+
+### For Managers
+
+### For Engineers
+
+{% page-ref page="useful-tools/scanners/" %}
+
+{% page-ref page="useful-tools/services/" %}
+
+### For Hackers
+
+{% page-ref page="hack-space/web/" %}
+
+{% page-ref page="osint/" %}
+
+{% page-ref page="mobile.md" %}
+
+
+
