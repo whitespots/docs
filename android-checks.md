@@ -1,6 +1,6 @@
 # Android checks
 
-
+## What to check while development
 
 * Execution of Javascript in WebView is disabled
 * There is no way to send any object to WebView
