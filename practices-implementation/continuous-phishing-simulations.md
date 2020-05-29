@@ -26,6 +26,10 @@ Scenarios can be based on:
 Don't make it the pattern. Your colleagues should not receive phishing mails each friday or each first day of the month.  
 Phishing should be unexpected.
 
+## Groups
+
+Split your employees by groups properly. Be aware, that they will share the information
+
 ## Metrics
 
 * Open rate \(ok\)
@@ -37,6 +41,8 @@ Phishing should be unexpected.
 {% page-ref page="../useful-tools/services/gophish.md" %}
 
 ## Have questions?
+
+Write to us and get a **free** consultation.
 
 **Website**: [whitespots.io](https://whitespots.io/?utm=appsecwiki)   
 **Email**: [sales@whitespots.io](mailto:sales@whitespots.io)
