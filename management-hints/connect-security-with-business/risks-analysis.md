@@ -2,7 +2,7 @@
 description: Understand all possible ways to attack your company (mostly for C-Level)
 ---
 
-# Risks analysis
+# Risks analysis \(Applications\)
 
 ## Requirements
 

@@ -7,7 +7,7 @@
 * [How to connect security to business](management-hints/connect-security-with-business/README.md)
   * [Bugs severity for a business](management-hints/connect-security-with-business/bugs-severity-for-a-business.md)
   * [Products catalog](management-hints/connect-security-with-business/products-catalog.md)
-  * [Risks analysis](management-hints/connect-security-with-business/risks-analysis.md)
+  * [Risks analysis \(Applications\)](management-hints/connect-security-with-business/risks-analysis.md)
   * [Conclusions](management-hints/connect-security-with-business/conclusions.md)
 * [SDLC \(Secure Development Lifecycle\)](sdlc-secure-development-lifecycle.md)
 
