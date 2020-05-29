@@ -19,6 +19,7 @@
 * [Asset discovery](practices-implementation/asset-discovery.md)
 * [BugBounty](practices-implementation/bugbounty.md)
 * [Security champions](practices-implementation/security-champions.md)
+* [Continuous Phishing simulations](practices-implementation/continuous-phishing-simulations.md)
 
 ## Useful Tools
 
