@@ -136,7 +136,7 @@ Look for sensitive info in Strings resources
 
 ### Automate your checks
 
-{% page-ref page="useful-tools/services/mobsf.md" %}
+{% page-ref page="../useful-tools/services/mobsf.md" %}
 
 ### Tools
 

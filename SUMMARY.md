@@ -44,6 +44,6 @@
   * [SQL injections](hack-space/web/sql-injections.md)
 * [OSINT](osint/README.md)
   * [Secrets](osint/secrets.md)
-* [Mobile](mobile.md)
-* [Android checks](android-checks.md)
+* [Mobile](mobile/README.md)
+  * [Android checks](mobile/android-checks.md)
 
