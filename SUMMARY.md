@@ -47,5 +47,5 @@
 * [OSINT](osint/README.md)
   * [Secrets](osint/secrets.md)
 * [Mobile](mobile/README.md)
-  * [Android checks](mobile/android-checks.md)
+  * [Android](mobile/android-checks.md)
 

@@ -1,4 +1,4 @@
-# Android checks
+# Android
 
 ## What to check while development
 
