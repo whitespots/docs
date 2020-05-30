@@ -45,7 +45,7 @@
   * [Remote Code Execution](hack-space/web/remote-code-execution.md)
   * [SQL injections](hack-space/web/sql-injections.md)
 * [OSINT](osint/README.md)
-  * [Secrets](osint/secrets.md)
+  * [Secrets exploiting](osint/secrets.md)
 * [Mobile](mobile/README.md)
   * [Android](mobile/android-checks.md)
 

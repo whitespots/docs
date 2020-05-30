@@ -167,6 +167,7 @@ JS:
 > ~ %e2%89%af
 > ~ %ef%b9%a5
 > ~ %ef%bc%9e
+' ~ %ef&bc%87
 ```
 
 \([https://appcheck-ng.com/unicode-normalization-vulnerabilities-the-special-k-polyglot/\#](https://appcheck-ng.com/unicode-normalization-vulnerabilities-the-special-k-polyglot/#)\)
