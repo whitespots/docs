@@ -10,6 +10,7 @@ description: Find even more about you products
 Trufflehog
 
 ```text
+pip install truffleHog
 trufflehog --json --regex --max_depth=20 --entropy=False https://github...git > results.json 
 ```
 
