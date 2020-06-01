@@ -18,7 +18,7 @@ description: External scanning phase
 
 ## What is the process
 
-* Receive a notification/report with external misconfigurations
+* Receive a notification/report with external misconfigurations from your security testing team/scanner 
 * Create required tasks and assign to system administrators / developers
 * Resolve these issues by priority
 
