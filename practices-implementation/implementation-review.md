@@ -19,7 +19,7 @@ You can build this practice **not only as an independent** one but also as a par
 ## What is the process
 
 * Deploy your changes to the testing environment
-* Get issues from the scanner/CI stage report
+* Get issues from your security testing team \(**scanner/CI stag**e report in a good way\)
 * Fix these issues by priority
 
 It can be helpful here, if your team has any questions:
