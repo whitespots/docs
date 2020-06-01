@@ -19,7 +19,7 @@ You can build this practice **not only as an independent** one but also as a par
 ## What is the process
 
 * Commit and push your changes
-* Get issues from CI stage report
+* Get issues from the code reviewer \(or **CI stage** report in a good way\)
 * Fix these issues by priority
 
 It can be helpful here, if your team has any questions:
