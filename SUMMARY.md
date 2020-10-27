@@ -18,6 +18,13 @@
 
 * [Design](practices-implementation/design/README.md)
   * [Best practices for developers](practices-implementation/design/best-practices-for-developers/README.md)
+    * [Identification Authentication and Authorization algorithms](practices-implementation/design/best-practices-for-developers/identification-authentication-and-authorization-algorithms.md)
+    * [OpenID connect \(OIDC\)](practices-implementation/design/best-practices-for-developers/openid-connect-oidc.md)
+    * [Session-based authentication](practices-implementation/design/best-practices-for-developers/session-based-authentication.md)
+    * [Secrets management](practices-implementation/design/best-practices-for-developers/secrets-management.md)
+    * [Images signing](practices-implementation/design/best-practices-for-developers/images-signing.md)
+    * [Commits signing](practices-implementation/design/best-practices-for-developers/commits-signing.md)
+    * [OAuth 2.0](practices-implementation/design/best-practices-for-developers/oauth-2.0.md)
     * [Docker](practices-implementation/design/best-practices-for-developers/docker.md)
   * [Security requirements](practices-implementation/design/security-requirements.md)
   * [Design review](practices-implementation/design/design-review.md)
