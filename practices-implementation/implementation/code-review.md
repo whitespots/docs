@@ -2,11 +2,11 @@
 description: Internal review before production
 ---
 
-# Code review
+# Code review with static analysers
 
 You can build this practice **not only as an independent** one but also as a part of the SDLC
 
-{% page-ref page="../sdlc-secure-development-lifecycle.md" %}
+{% page-ref page="../../sdlc-secure-development-lifecycle.md" %}
 
 ## What will you get
 
@@ -24,13 +24,13 @@ You can build this practice **not only as an independent** one but also as a par
 
 It can be helpful here, if your team has any questions:
 
-{% page-ref page="security-champions.md" %}
+{% page-ref page="../security-champions.md" %}
 
 ## Tools
 
-{% page-ref page="../useful-tools/scanners/sast.md" %}
+{% page-ref page="../../useful-tools/scanners/sast.md" %}
 
-{% page-ref page="../useful-tools/scanners/dependency-checker.md" %}
+{% page-ref page="../../useful-tools/scanners/dependency-checker.md" %}
 
 ## Have questions?
 

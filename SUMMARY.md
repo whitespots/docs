@@ -9,13 +9,20 @@
   * [Products catalog](management-hints/connect-security-with-business/products-catalog.md)
   * [Risks analysis \(Applications\)](management-hints/connect-security-with-business/risks-analysis.md)
   * [Conclusions](management-hints/connect-security-with-business/conclusions.md)
+
+---
+
 * [SDLC \(Secure Development Lifecycle\)](sdlc-secure-development-lifecycle.md)
 
 ## Practices implementation
 
-* [Design review](practices-implementation/design-review.md)
-* [Code review](practices-implementation/code-review.md)
-* [Implementation review](practices-implementation/implementation-review.md)
+* [Design](practices-implementation/design/README.md)
+  * [Best practices for developers](practices-implementation/design/best-practices-for-developers.md)
+  * [Security requirements](practices-implementation/design/security-requirements.md)
+  * [Design review](practices-implementation/design/design-review.md)
+* [Implementation](practices-implementation/implementation/README.md)
+  * [Code review with static analysers](practices-implementation/implementation/code-review.md)
+  * [Implementation review with dynamic analysers](practices-implementation/implementation/implementation-review.md)
 * [Asset discovery](practices-implementation/asset-discovery.md)
 * [BugBounty](practices-implementation/bugbounty.md)
 * [Security champions](practices-implementation/security-champions.md)
@@ -44,6 +51,9 @@
   * [Bypasses](hack-space/web/bypasses.md)
   * [Remote Code Execution](hack-space/web/remote-code-execution.md)
   * [SQL injections](hack-space/web/sql-injections.md)
+
+---
+
 * [OSINT](osint/README.md)
   * [Secrets exploiting](osint/secrets.md)
 * [Mobile](mobile/README.md)

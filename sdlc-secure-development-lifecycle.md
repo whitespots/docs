@@ -22,7 +22,7 @@ Business target:
 
 **Security practices**
 
-{% page-ref page="practices-implementation/design-review.md" %}
+{% page-ref page="practices-implementation/design/design-review.md" %}
 
 It can be helpful here, if your team has any questions:
 
@@ -46,7 +46,7 @@ Details:
 
 **Security practices**
 
-{% page-ref page="practices-implementation/design-review.md" %}
+{% page-ref page="practices-implementation/design/design-review.md" %}
 
 It can be helpful here, if your team has any questions:
 
@@ -57,9 +57,9 @@ It can be helpful here, if your team has any questions:
 After development knows what to do, features will be developed and tested.   
 We need to implement 2 **Security practices** here
 
-{% page-ref page="practices-implementation/code-review.md" %}
+{% page-ref page="practices-implementation/implementation/code-review.md" %}
 
-{% page-ref page="practices-implementation/implementation-review.md" %}
+{% page-ref page="practices-implementation/implementation/implementation-review.md" %}
 
 It can be helpful here, if your team has any questions:
 

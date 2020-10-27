@@ -6,7 +6,7 @@ description: Feature & specification review
 
 You can build this practice **not only as an independent** one but also as a part of the SDLC
 
-{% page-ref page="../sdlc-secure-development-lifecycle.md" %}
+{% page-ref page="../../sdlc-secure-development-lifecycle.md" %}
 
 ## What will you get
 
@@ -27,7 +27,7 @@ You can build this practice **not only as an independent** one but also as a par
 
 It can be helpful here, if your team has any questions:
 
-{% page-ref page="security-champions.md" %}
+{% page-ref page="../security-champions.md" %}
 
 ## Have questions?
 
