@@ -17,7 +17,8 @@
 ## Practices implementation
 
 * [Design](practices-implementation/design/README.md)
-  * [Best practices for developers](practices-implementation/design/best-practices-for-developers.md)
+  * [Best practices for developers](practices-implementation/design/best-practices-for-developers/README.md)
+    * [Docker](practices-implementation/design/best-practices-for-developers/docker.md)
   * [Security requirements](practices-implementation/design/security-requirements.md)
   * [Design review](practices-implementation/design/design-review.md)
 * [Implementation](practices-implementation/implementation/README.md)
