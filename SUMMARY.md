@@ -18,6 +18,7 @@
 
 * [Design](practices-implementation/design/README.md)
   * [Best practices for developers](practices-implementation/design/best-practices-for-developers/README.md)
+    * [Jason Web Token](practices-implementation/design/best-practices-for-developers/jason-web-token.md)
     * [Identification Authentication and Authorization algorithms](practices-implementation/design/best-practices-for-developers/identification-authentication-and-authorization-algorithms.md)
     * [OpenID connect \(OIDC\)](practices-implementation/design/best-practices-for-developers/openid-connect-oidc.md)
     * [Session-based authentication](practices-implementation/design/best-practices-for-developers/session-based-authentication.md)

@@ -66,7 +66,7 @@ export DOCKER_HOST=unix:///run/user/1001/docker.sock
 $ systemctl --user start docker
 ```
 
-Чтобы запускать демона при загрузке системы, включите systemd сервис и lingering:
+Чтобы запускать демон при загрузке системы, включите systemd сервис и lingering:
 
 ```text
 $ systemctl --user enable docker
@@ -100,4 +100,6 @@ $ docker run -d -p 8080:80 nginx
 {% hint style="info" %}
 Полная инструкция с нюансами для разных дистрибутивов доступна на странице документации докера \([Run the Docker daemon as a non-root user](https://docs.docker.com/engine/security/rootless/)\)
 {% endhint %}
+
+
 
