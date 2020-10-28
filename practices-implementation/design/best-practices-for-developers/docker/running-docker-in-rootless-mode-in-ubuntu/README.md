@@ -87,7 +87,7 @@ $ echo "export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock" >> ~/.profile
 After this step you must logout and login again
 {% endhint %}
 
-And finally, run nginx container:
+And finally, run nginx container for test:
 
 ```text
 $ docker run -d -p 8080:80 nginx
