@@ -1,11 +1,10 @@
 ---
 description: >-
   Rootless mode allows running the Docker daemon and containers as a non-root
-  user to mitigate potential vulnerabilities in the daemon and the container
-  runtime.
+  user to mitigate potential vulnerabilities.
 ---
 
-# Running docker in rootless mode in ubuntu
+# Running Docker in rootless mode in ubuntu
 
 ## How it works
 

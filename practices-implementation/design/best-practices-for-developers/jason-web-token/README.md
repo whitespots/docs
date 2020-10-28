@@ -1,2 +1,2 @@
-# Jason Web Token
+# JSON Web Token
 
