@@ -2,12 +2,12 @@
 
 * **Integrity**: Никто не изменил ваши данные 
 * **Authenticity**: Вы можете проверить источник данных
-* **Non-repudiation \(from authority\)**: Не только вы можете проверить источник данных
+* **Non-repudiation \(from authority\)**: Неотказуемость от авторства
 * **Confidentiality**: Данные сохранены в секрете от неавторизованных сторон
 
 ### **Классы алгоритмов** 
 
-| Name | Integrity | Confidentiality | Authenticity | Resilience |
+| Name | Integrity | Confidentiality | Authenticity | Non-repudiation |
 | :--- | :---: | :---: | :---: | :---: |
 | HMAC | ✅ | 🚫 | ✅ | 🚫 |
 | Authenticated encryption | ✅ | ✅ | ✅ | 🚫 |

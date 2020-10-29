@@ -7,7 +7,7 @@
 
 ### **Algorithm classes** 
 
-| Name | Integrity | Confidentiality | Authenticity | Resilience |
+| Name | Integrity | Confidentiality | Authenticity | Non-repudiation |
 | :--- | :---: | :---: | :---: | :---: |
 | HMAC | ✅ | 🚫 | ✅ | 🚫 |
 | Authenticated encryption | ✅ | ✅ | ✅ | 🚫 |
