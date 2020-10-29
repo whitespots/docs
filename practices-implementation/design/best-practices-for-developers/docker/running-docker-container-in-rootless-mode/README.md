@@ -33,7 +33,7 @@ USER testuser
 ```
 
 {% hint style="info" %}
-If you need to run Docker itself in rootless mode, check our guide [Running docker in rootless mode in ubuntu](running-docker-in-rootless-mode-in-ubuntu/)
+If you need to run Docker itself in rootless mode, check our guide [Running docker in rootless mode in ubuntu](../running-docker-in-rootless-mode-in-ubuntu/)
 {% endhint %}
 
 
