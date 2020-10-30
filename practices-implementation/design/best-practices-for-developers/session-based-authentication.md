@@ -12,3 +12,9 @@
 * Sent to clients with `cache-control: no-store` header
 * Binded to user-agent
 
+{% hint style="info" %}
+Avoid creating your own custom algorithms for sessions
+{% endhint %}
+
+
+
