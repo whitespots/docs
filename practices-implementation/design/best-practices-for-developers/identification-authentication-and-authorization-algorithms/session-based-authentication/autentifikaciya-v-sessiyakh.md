@@ -12,8 +12,6 @@
 * Привязаны к юзер-агенту
 
 {% hint style="info" %}
-Avoid creating your own custom algorithms for sessions
+Избегайте создания своих имплементаций алгоритмов сессий, это может быть небезопасно
 {% endhint %}
-
-
 
