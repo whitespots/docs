@@ -64,7 +64,7 @@ The Redirect URI should be registered with the IDP and constrained to a single v
 ### 
 
 1. The Browser selects a provider, let’s say GitHub, in the application and clicks “Connect to GitHub”.
-2. The **RP** receives this request and directs the Browser to the **IDP** along with a public **Client\_Id, a Redirect URI and a State**.
+2. The **RP** receives this request and redirects the Browser to the **IDP** along with a public **Client\_Id, a Redirect URI and a State**.
 3. The Browser accepts the redirect and goes to the **IDP** endpoint.
 4. The **IDP** responds and asks for the user to authenticate and to approve the scope of the OAuth request \(scope here meaning, repo level, admin level…\)
 5. The Browser sends authentication information and approves the scope of the OAuth request.
@@ -75,6 +75,29 @@ The Redirect URI should be registered with the IDP and constrained to a single v
 9. If the **Client Secret** and **Code** are valid for the given **Client\_Id**, then the **IDP** will return an **Access Token** to the **RP**.
 10. Now the **RP** wants to access the user’s resources. They can simply call the **IDP** endpoint with the **Access Token as a parameter**. This is usually done via a custom header.
 11. If the **Access Token** is valid, the **IDP** will return that user’s resources.
+
+### Authorization Code with Proof Key for Code Exchange \(PKCE\)
+
+![Picture from OAuth0.com](../../../../.gitbook/assets/image%20%286%29.png)
+
+{% hint style="info" %}
+**App = RP  
+Auth0 Tenant = IDP**
+{% endhint %}
+
+1. The user clicks **Login** within the application.
+2. **RP** creates a cryptographically-random `code_verifier` and from this generates a `code_challenge`.
+3. **RP** redirects the user to the **IDP** \(**/authorize** endpoint\) along with the `code_challenge`.
+4. **IDP** redirects the user to the login and authorization prompt.
+5. The user authenticates using one of the configured login options and may see a consent page listing the permissions will give to the application.
+6. **IDP** stores the `code_challenge` and redirects the user back to the application with an authorization `code`, which is good for one use.
+7. **RP** sends this `code` and the `code_verifier` \(created in step 2\) to the **IDP** \(**/oauth/token** endpoint\).
+8. **IDP** verifies the `code_challenge` and `code_verifier`.
+9. **IDP** responds with an ID Token and Access Token \(and optionally, a Refresh Token\).
+10. **RP** can use the Access Token to call an API to access information about the user.
+11. The API responds with requested data.
+
+[**Other flows**](https://auth0.com/docs/flows)\*\*\*\*
 
 ## Recommendations
 
@@ -164,6 +187,7 @@ Many thanks to:
 
 * [Authorization code flow pentest guide](https://maxfieldchen.com/posts/2020-05-17-penetration-testers-guide-oauth-2.html)
 * [RFC 6749](https://tools.ietf.org/html/rfc6749)
+* [OAuth0](https://OAuth0.com)
 
 
 
