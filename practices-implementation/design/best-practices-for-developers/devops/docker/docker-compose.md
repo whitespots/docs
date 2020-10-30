@@ -17,7 +17,7 @@ Volumes are often a better choice than persisting data in a container’s writab
 
 Depends on what you need, you can choose between 3 ways of storing your data:
 
-![](../../../../.gitbook/assets/image%20%284%29.png)
+![](../../../../../.gitbook/assets/image%20%284%29.png)
 
 1. Bind mounts from filesystem
 2. Create a volume in the Docker area

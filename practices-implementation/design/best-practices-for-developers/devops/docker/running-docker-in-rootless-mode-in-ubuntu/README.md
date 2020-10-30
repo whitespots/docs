@@ -94,7 +94,7 @@ $ docker run -d -p 8080:80 nginx
 
 Check your user with `ps auxf`:
 
-![](../../../../../.gitbook/assets/docker-rootless.png)
+![](../../../../../../.gitbook/assets/docker-rootless.png)
 
 {% hint style="info" %}
 Full guide with distributive specific hints can be found on Docker Docs page \([Run the Docker daemon as a non-root user](https://docs.docker.com/engine/security/rootless/)\)

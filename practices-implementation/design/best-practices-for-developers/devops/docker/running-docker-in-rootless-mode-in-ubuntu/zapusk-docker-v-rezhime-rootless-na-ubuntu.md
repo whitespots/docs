@@ -95,7 +95,7 @@ $ docker run -d -p 8080:80 nginx
 
 Проверьте пользователя используя `ps auxf`:
 
-![](../../../../../.gitbook/assets/docker-rootless.png)
+![](../../../../../../.gitbook/assets/docker-rootless.png)
 
 {% hint style="info" %}
 Полная инструкция с нюансами для разных дистрибутивов доступна на странице документации докера \([Run the Docker daemon as a non-root user](https://docs.docker.com/engine/security/rootless/)\)
