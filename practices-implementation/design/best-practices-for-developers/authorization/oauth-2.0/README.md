@@ -27,7 +27,7 @@ An access token is a multiple use string issued by the **IDP** which can be dire
 The Client Secret is unique to each **RP** and allows the **RP** to exchange valid code and state combinations for **Access Tokens** at the **IDP**.
 
 {% hint style="info" %}
-The Client Secret must always be **kept secret**! If it ever leaks, attackers can subvert the OAuth flow by converting codes into tokens. This allows them to access the resources at the IDP directly instead of accessing them through the RP.
+The Client Secret must always be **kept secret**! If it ever leaks, attackers can subvert the OAuth flow by converting codes into tokens. This allows them to access the user data.
 {% endhint %}
 
 **Authorization Code**  
@@ -37,8 +37,6 @@ This code is a single use string which can be combined with a valid **State** an
 It’s important to point out here that Code != Access Token. An authorization code cannot be used to directly make requests to the IDP and must be exchanged for an access token by the RP.
 
 The Authorization Code will be passed from the Browser to the RP, who will exchange it with the IDP for an Access Token.
-
-This Code cannot be used to receive an Access Token from the IDP unless it is paired with the RP’s Client Secret.
 {% endhint %}
 
 **State**  
@@ -52,7 +50,7 @@ The RP must validate that the State received from the Browser is the same as the
 The Redirect URI is the location where the **IDP** will send the Browser after completing the auth dance. When the Browser is directed here, it will contain the **Authorization Code** and the **State**.
 
 {% hint style="info" %}
-The Redirect URI should be registered with the IDP and constrained to a single value or to a pattern match.
+The Redirect URI should be registered with the IDP and constrained to a single value or to a pattern match \(in other words, Redirect URI must be whitelisted\)
 {% endhint %}
 
 ## Flows
@@ -85,6 +83,8 @@ The Redirect URI should be registered with the IDP and constrained to a single v
 Auth0 Tenant = IDP**
 {% endhint %}
 
+From OAuth0.com:
+
 1. The user clicks **Login** within the application.
 2. **RP** creates a cryptographically-random `code_verifier` and from this generates a `code_challenge`.
 3. **RP** redirects the user to the **IDP** \(**/authorize** endpoint\) along with the `code_challenge`.
@@ -103,7 +103,7 @@ Auth0 Tenant = IDP**
 
 1. Use whitelists for your urls
 2. Make temporary things really temporary
-3. Pay attention to configuration
+3. Pay attention to configuration \(whitelists, default secrets\):
    1. Cookie flags - **secure**, **httponly**, **samesite**
    2. `Cache-Control: no-store` header for each response with tokens
 4. Never pass your tokens in `Referrer` header
@@ -139,7 +139,7 @@ Make sure to verify that the site doesn’t trim the Referer header or otherwise
 Attackers can compose CSRF attacks with modified Redirect URIs and an attacker’s Code to authenticate the victim using attacker resources.
 
 {% hint style="info" %}
-If the victim does not realize that the authentication code has been swapped, they may place sensitive data inside attacker controlled resources. The reason this attack works is because the state parameter in step 2 is unique to a session. If there is no state provided at step 2 of the OAuth flow there is nothing to verify the session token against.
+If the victim does not realize that the authentication code has been swapped, they may place sensitive data inside attacker controlled resources. The reason this attack works is because the state parameter in step 2 is unique to a session and if there is no state provided at step 2 of the OAuth flow, there is nothing to verify the session token against.
 {% endhint %}
 
 #### Lack of state
