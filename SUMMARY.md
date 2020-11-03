@@ -38,6 +38,8 @@
       * [OAuth 2.0](practices-implementation/design/best-practices-for-developers/authorization/oauth-2.0/README.md)
         * [OAuth 2.0 \(rus\)](practices-implementation/design/best-practices-for-developers/authorization/oauth-2.0/oauth-2.0-rus.md)
     * [Secrets management](practices-implementation/design/best-practices-for-developers/secrets-management.md)
+    * [File upload](practices-implementation/design/best-practices-for-developers/file-upload/README.md)
+      * [Загрузка файлов](practices-implementation/design/best-practices-for-developers/file-upload/zagruzka-failov.md)
   * [Security requirements](practices-implementation/design/security-requirements.md)
   * [Design review](practices-implementation/design/design-review.md)
 * [Implementation](practices-implementation/implementation/README.md)
