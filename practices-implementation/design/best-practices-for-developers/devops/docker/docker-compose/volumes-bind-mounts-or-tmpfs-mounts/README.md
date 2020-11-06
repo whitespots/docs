@@ -14,7 +14,7 @@ Docker has two options for containers to store files in the host machine, so tha
 
 Depends on what you need, you can choose between 3 ways of storing your data:
 
-![](../../../../../../.gitbook/assets/image%20%284%29.png)
+![](../../../../../../../.gitbook/assets/image%20%284%29.png)
 
 * **Volumes** are stored in a part of the host filesystem which is _managed by Docker_ \(`/var/lib/docker/volumes/` on Linux\). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 * **Bind mounts** may be stored _anywhere_ on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
