@@ -26,6 +26,7 @@
           * [Запуск docker в режиме rootless на ubuntu](practices-implementation/design/best-practices-for-developers/devops/docker/running-docker-in-rootless-mode-in-ubuntu/zapusk-docker-v-rezhime-rootless-na-ubuntu.md)
         * [Docker-compose](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/README.md)
           * [Volumes, bind mounts or tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts.md)
+          * [Volumes](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes.md)
       * [Commits signing](practices-implementation/design/best-practices-for-developers/devops/commits-signing.md)
       * [Images signing](practices-implementation/design/best-practices-for-developers/devops/images-signing.md)
     * [Authentication](practices-implementation/design/best-practices-for-developers/identification-authentication-and-authorization-algorithms/README.md)
