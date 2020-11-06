@@ -95,7 +95,7 @@ $ docker run -v /dbdata --name dbstore ubuntu /bin/bash
 $ docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
 ```
 
-Когда команда выполнится, контейнер остановится и мы получим резевную копию volume'a  `dbdata` .
+Когда команда выполнится, контейнер остановится и мы получим резервную копию volume'a  `dbdata` .
 
 #### Восстановление из резервной копии <a id="restore-container-from-backup"></a>
 
