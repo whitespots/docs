@@ -24,9 +24,9 @@ Telegram: **@**[**httpnotonly**](https://t.me/httpnotonly)
 
 {% page-ref page="hack-space/web/" %}
 
-{% page-ref page="osint/" %}
+{% page-ref page="hack-space/osint/" %}
 
-{% page-ref page="mobile/" %}
+{% page-ref page="hack-space/mobile/" %}
 
 
 

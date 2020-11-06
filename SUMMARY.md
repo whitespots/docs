@@ -72,16 +72,13 @@
 
 ## Hack space
 
+* [OSINT](hack-space/osint/README.md)
+  * [Secrets exploiting](hack-space/osint/secrets.md)
+* [Mobile](hack-space/mobile/README.md)
+  * [Android](hack-space/mobile/android-checks.md)
 * [WEB](hack-space/web/README.md)
   * [Takeovers](hack-space/web/takeovers.md)
   * [Bypasses](hack-space/web/bypasses.md)
   * [Remote Code Execution](hack-space/web/remote-code-execution.md)
   * [SQL injections](hack-space/web/sql-injections.md)
-
----
-
-* [OSINT](osint/README.md)
-  * [Secrets exploiting](osint/secrets.md)
-* [Mobile](mobile/README.md)
-  * [Android](mobile/android-checks.md)
 
