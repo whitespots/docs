@@ -75,7 +75,7 @@ volumes:
 
 ### Резервное копирование и восстановление
 
-Volumes удобны при резевном копировании, восстановлении и миграциях. Используйте флаг `--volumes-from` для создания нового контейнера, который использует volume.
+Volumes удобны при резервном копировании, восстановлении и миграциях. Используйте флаг `--volumes-from` для создания нового контейнера, который использует volume.
 
 #### Резервное копирование  <a id="backup-a-container"></a>
 
@@ -89,7 +89,7 @@ $ docker run -v /dbdata --name dbstore ubuntu /bin/bash
 
 * Запустим контейнер и монтируем в него volume из контейнера `dbstore` 
 * Монтируем директорию локальной машины - `/backup`
-* Передадим команду, которая аривирует содержимое volume'а `dbdata`  в файл `backup.tar`в директории `/backup` .
+* Передадим команду, которая архивирует содержимое volume'а `dbdata`  в файл `backup.tar`в директории `/backup` .
 
 ```bash
 $ docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
