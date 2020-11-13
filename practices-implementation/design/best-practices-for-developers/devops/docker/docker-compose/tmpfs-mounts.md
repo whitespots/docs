@@ -70,6 +70,7 @@ services:
         target: /app
         tmpfs:
           size: 1000
+          mode: 1770
 ```
 
 {% hint style="info" %}
