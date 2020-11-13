@@ -28,6 +28,7 @@
           * [Volumes, bind mounts or tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts/README.md)
             * [Volumes, bind mounts или tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts/untitled.md)
           * [Bind mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/bind-mounts.md)
+          * [tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/tmpfs-mounts.md)
           * [Volumes](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes/README.md)
             * [Volumes \(rus\)](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes/volumes-rus.md)
       * [Commits signing](practices-implementation/design/best-practices-for-developers/devops/commits-signing.md)
