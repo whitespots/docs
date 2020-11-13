@@ -113,5 +113,7 @@ Then un-tar the backup file in the new container\`s data volume:
 $ docker run --rm --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar --strip 1"
 ```
 
-
+{% hint style="info" %}
+For more information on volumes visit Docker Docs [page](https://docs.docker.com/storage/volumes/).
+{% endhint %}
 

@@ -97,3 +97,7 @@ services:
 When creating bind mounts, using the long syntax requires the referenced folder to be created beforehand.
 {% endhint %}
 
+{% hint style="info" %}
+For more information on bind mounts visit Docker Docs [page](https://docs.docker.com/storage/bind-mounts/).
+{% endhint %}
+
