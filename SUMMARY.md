@@ -13,6 +13,8 @@
 ---
 
 * [SDLC \(Secure Development Lifecycle\)](sdlc-secure-development-lifecycle.md)
+* [ASVS V4 Checklists](asvs-v4-checklists.md)
+* [Front, back end Checklists](front-back-end-checklists.md)
 
 ## Practices implementation
 
