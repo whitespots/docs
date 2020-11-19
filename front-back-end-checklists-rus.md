@@ -1,36 +1,37 @@
-# Front, back end Checklists
+# Front, back end Checklists \(rus\)
 
-## Governance 
+## Управление 
 
-### V1.1 Secure Software Development Lifecycle Requirements
+### V1.1 Требования к процессу безопасной разработки \(SSDLC\)
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify the use of a secure software development lifecycle that addresses security in all stages of development.
-2. Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.
-3. Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile"
-4. Verify documentation and justification of all the application's trust boundaries, components, and significant data flows.
-5. Verify definition and security analysis of the application's high-level architecture and all connected remote services.
-6. Verify implementation of centralized, simple \(economy of design\), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls.
-7. Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.
+1. Принципы SSDLC используется на всех этапах разработки. 
+2. Моделируются угрозы для каждого изменения в дизайне приложения или в спринтах планируется поиск угроз, планируются контрмеры и проводится тестирование на безопасность. 
+3. Все пользовательские функции имеют ограничения безопасности, например "Я, как пользователь, могу просматривать и редактировать свой профиль. Я не должен видеть и редактировать чей-либо еще профиль"
+4. Все точки доступа и доверия приложения, компонентов и значительных потоков данных документированы и их использование обосновано. 
+5. Проведено определение и анализ высокоуровневой архитектуры приложения и всех подключенных удаленных сервисов. 
+6. Внедрена централизованная, простая, проверенная, безопасная система контроля безопасности, чтобы избежать дублирования, отсутствия, неэффективного или небезопасного контроля. 
+7. Всем разработчикам и тестировщикам доступны чек-листы, требования безопасности, инструкции или политики безопасности. 
 
 
 
-## Architecture 
+## Архитектура 
 
-### V1.7 Errors, Logging and Auditing Architectural Requirements
+### V1.7 Ошибки, логирование и аудит
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that a common logging format and approach is used across the system.
-2. Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation.
+1. В системе используется общий формат и подход к логированию.
+2. Логи безопасно передаются в, предпочтительно, удаленную систему для анализа, обнаружения, оповещения и эскалации. 
 
-### V1.8 Data Protection and Privacy Architectural Requirements
+### V1.8 Приватность и защита данных
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that all sensitive data is identified and classified into protection levels.
-2. Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.
+1. Все конфиденциальные данные идентифицированы и классифицированы по уровням защиты. 
+2. Убедитесь, что все уровни защиты имеют взаимосвязанные требования защиты, например, требования шифрования, целостности, сохранения, приватности и иных требований конфиденциальности
+3. 4. Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.
 
 ### V1.9 Communications Architectural Requirements
 
