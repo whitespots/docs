@@ -30,164 +30,163 @@
 **Средние и высокие требования:**
 
 1. Все конфиденциальные данные идентифицированы и классифицированы по уровням защиты. 
-2. Убедитесь, что все уровни защиты имеют взаимосвязанные требования защиты, например, требования шифрования, целостности, сохранения, приватности и иных требований конфиденциальности
-3. 4. Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.
+2. Все уровни защиты имеют взаимосвязанные требования защиты, например, требования шифрования, целостности, сохранения, приватности и иных требований конфиденциальности и приватности и эти требования применены в архитектуре. 
 
-### V1.9 Communications Architectural Requirements
+### V1.9 Коммуникации
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.
-2. Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains.
+1. Приложение шифрует коммуникации между компонентами, в частности, когда эти компоненты находятся в разных контейнерах, системах, сайтах или в разных облачных сервисах. 
+2. Компоненты приложения проверяют подлинность каждой стороны коммуникации, чтобы предотвратить men-in-the-middle атаку. Например, компоненты приложения должны валидировать TLS сертификаты и цепочки доверия. 
 
-### V1.10 Malicious Software Architectural Requirements
+### V1.10 Вредоносное ПО
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes.
+1. Используется система контроля исходного кода, в ней можно создать тикеты о проблемах и изменениях. В этой системе используется контроль доступа и отслеживаются любые изменения идентифицированных пользователей. 
 
-### V1.11 Business Logic Architectural Requirements
+### V1.11 Бизнес логика 
 
-**Medium requirements:** 
+**Средние требования:** 
 
-1. Verify the definition and documentation of all application components in terms of the business or security functions they provide.
-2. Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state.
+1. Определены и описаны все бизнес функции и функции безопасности компонентов приложения. 
+2. Синхронизирвоаны все ценные бизнес процессы, включая аутентификацию, управление сессиями и контроль доступа. 
 
-**High requirements:**
+**Только высокие требования:** 
 
-1. Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
+1. Все бизнес процессы, включая аутентификацию, управление сессиями, управление доступом устойчивы к атакам "time-of-check" и "time-of-use race conditions"
 
-### V11.1 Business Logic Security Requirements
+### \*V11.1 Безопасность бизнес-логики
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.
-2. Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.
-3. Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis.
-4. Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks.
-5. Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modelling or similar methodologies.
+1. Приложение исполняет шаги бизнес логики для пользователя последовательно и без пропуска шагов. 
+2. Приложение исполняет каждый шаг бизнес логики в реалистичное время для человека, другими словами, транзакции не проводятся слишком быстро. 
+3. Приложение имеет лимиты для отдельных бизнес процессов или транзакций, которые выполняются для каждого пользователя отдельно. 
+4. В приложении реализованы лимиты для обнаружения и защиты от автоматизированных атак по типу фильтрации данных, чрезмерного обращения к процессам бизнес логики, чрезмерной загрузки файлов или DOS \(отказ в обслуживании\)
+5. * Приложение имеет лимиты для бизнес логики или валидации для защиты от возможных бизнес-рисков или угроз, выявленных с помощью моделирования угроз или похожих методик. 
 
-**Medium and high requirements only:**
+**Только средние и высокие требования:**
 
-1. Verify the application does not suffer from "time of check to time of use" \(TOCTOU\) issues or other race conditions for sensitive operations.
-2. Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt.
-3. Verify the application has configurable alerting when automated attacks or unusual activity is detected.
+1. Приложение не испытывает проблем с "time of check to time of use" \(TOCTOU\) и других проблем с важными процессами в состоянии гонки. 
+2. Приложение отслеживает необычные события или активность с точки зрения бизнес-логики. Например, попытки совершить действия не по порядку или действия, которые обычный пользователь никогда бы не предпринял. 
+3. Приложение имеет настраиваемую систему оповещения об обнаружении автоматизированных атаках или необычной активности. 
 
-### V14.1 Build
+### V14.1 Сборка
 
-**Medium and high requirements:**
+**Средние и высокие требования:**
 
-1. Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts.
-2. Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
-3. Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use.
-4. Verify that the application, configuration, and all dependencies can be redeployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion.
+1. Процессы сборки и развертывания приложения производятся безопасно, например, произведена автоматизация CI /CD, автоматизированы конфигурации и существуют скрипты автоматического развертывания. 
+2. Флаги компилятора настроены таким образом, чтобы обеспечить безопасную сборку \(включение всех доступных оповещений о переполнении буфера, рандомизация стека, предотвращение исполнения данных, остановка сборки если найдены небезопасные операции с указателями, памятью, форматированием строк\)
+3. Конфигурация сервера настроена в соответствии с рекомендациями приложения сервера и используемых фреймворков. 
+4. Приложение, конфигурации и все зависимости могут быть развернуты при помощи скриптов, составленных из документированных и протестированных последовательностей команд в разумные сроки или они могут быть восстановлены из резервных копий своевременно. 
 
-**High requirements only:**
+**Только высокие требования:**
 
-1. Verify that authorized administrators can verify the integrity of all securityrelevant configurations to detect tampering.
+1. Авторизованные администраторы могут проверить целостность всех важных с точки зрения безопасности конфигураций для определения вмешательства в них. 
 
-### V14.2 Dependency
+### V14.2 Зависимости
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that all components are up to date, preferably using a dependency checker during build or compile time.
-2. Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.
-3. Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network \(CDN\) or external provider, Subresource Integrity \(SRI\) is used to validate the integrity of the asset.
+1. Все компоненты обновлены. Во время сборки или компиляции используется dependency checker для проверки версий библиотек. 
+2. Все неиспользуемые функции, документация, примеры и конфигурации удалены, например, тестовые приложения, документация платформы или пользователи по умолчанию и временные пользователи для тестов. 
+3. Если элементы приложения, такие как библиотеки JavaScript, таблицы стилей CSS или шрифты хранятся во внешней сети доставки контента \(CDN\) или у внешнего провайдера, то используются средства проверки целостности ресурсов \(Subresource Integrity или SRI\). 
 
-**Medium and high requirements only:**
+**Только средние и высокие требования:**
 
-1. Verify that third party components come from pre-defined, trusted and continually maintained repositories.
-2. Verify that an inventory catalog is maintained of all third party libraries in use.
-3. Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application.
+1. Все сторонние компоненты поставляются от определенных, доверенных и постоянно обновляемых репозиториев. 
+2. Существует перечень всех используемых сторонних библиотек. 
+3. Сторонние библиотеки работают из песочницы или через wrapper'ы, чтобы добиться только требуемого от них поведения в приложении для уменьшения поверхности атаки.
 
-### V14.3 Unintended Security Disclosure Requirements
+### V14.3 Непреднамеренное раскрытие информации
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures.
-2. Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures.
-3. Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.
+1. Сообщения об ошибках фреймворка, веб и серверных приложений настроены и доставляют пользователю актуальные, персонализированные ответы для избежания непреднамеренного раскрытия конфиденциальной и иной критичной с точки зрения безопасности системной информации.   
+2. Отладочные режимы фреймворка, веб и серверных приложений отключены в рабочем окружении, чтобы опции отладки, консоли разработчика были отключены во избежание непреднамеренного раскрытия конфиденциальной и иной критичной с точки зрения безопасности системной информации.   
+3. Заголовки или иные части HTTP ответа не раскрывают детальную информацию о компонентах системы и информацию о версиях.  
 
 ## Backend 
 
-### V1.2 Authentication Architectural Requirements
+### \*V1.2 Аутентификация
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers.
-2. Verify that communications between application components, including APIs, middleware and data layers, are authenticated. Components should have the least necessary privileges needed.
-3. Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches.
-4. Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application.
+1. Во всех приложениях, компонентах, сервисах и на всех серверах используются уникальные или специальных низкопривилегированные учетные записи операционной системы
+2. Используется аутентификация в коммуникациях между компонентами приложений, включая API, промежуточное ПО и уровни данных. Компоненты должны иметь привилегии не выше необходимого минимума. 
+3. \*Приложение использует единый проверенный и безопасный механизм аутентификации, он может быть расширен для использования строгой аутентификации, имеет подробное логирование для обнаружения зловредных действий с аккаунтов. 
+4. \*Все пути аутентификации и API контроля идентификации производят последовательный контроль безопасности аутентификации и нет иных небезопасных альтернатив для аутентификации. 
 
-### V1.4 Access Control Architectural Requirements
+### V1.4 Управление доступом
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client.
-2. Verify that the chosen access control solution is flexible enough to meet the application's needs.
-3. Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege.
-4. Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.
-5. Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles.
+1. Все точки управления доступом, такие как шлюзы управления доступом, серверы, бессерверные функции обеспечивают контроль доступа. Управление доступом не производится на стороне клиента. 
+2. Выбранное решение для управления доступом достаточно гибкое, чтобы обеспечить нужды приложения. 
+3. Для всех функций, данных, URL адресов, контроллеров, сервисов и других ресурсов применяется принцип минимально необходимых привилегий. 
+4. Приложение использует единственный и хорошо проверенный механизм контроля доступа для обращения к защищенным данным и ресурсам. Все запросы должны передаваться через этот единый механизм. 
+5. Контроль доступа использует атрибут или функцию, которая проверяет, есть ли у данного авторизованного пользователя доступ к функции / данным, а не просто проверяет его роль. Разрешения все же должны выдаваться на основе ролей. 
 
-### V1.5 Input and Output Architectural Requirements
+### V1.5 Ввод и вывод
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.
-2. Verify that serialization is not used when communicating with untrusted clients. If this is not possible, ensure that adequate integrity controls \(and possibly encryption if sensitive data is sent\) are enforced to prevent deserialization attacks including object injection.
-3. Verify that input validation is enforced on a trusted service layer.
-4. Verify that output encoding occurs close to or by the interpreter for which it is intended.
+1. Требования к вводу и выводу четко определяют как обрабатывать данные на основе типа, контента, применяемых законов, нормативов и других политик.  
+2. Сериализация не используется в коммуникации с недоверенными клиентами. Если это невозможно, то для предотвращения атак десериализации и инъекции объектов применяются средства контроля целостности \(и шифрование, если отправляются конфиденциальные данные\). 
+3. Проверка ввода используется на доверенном сервисном уровне. 
+4. Убедитесь, что кодировка вывода происходит рядом с интерпретатором, для которого она предназначена, или с помощью этого интерпретатора. 
 
-### V1.6 Cryptographic Architectural Requirements
+### V1.6 Криптография
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57.
-2. Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives.
-3. Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data.
-4. Verify that symmetric keys, passwords, or API secrets generated by or shared with clients are used only in protecting low risk secrets, such as encrypting local storage, or temporary ephemeral uses such as parameter obfuscation. Sharing secrets with clients is clear-text equivalent and architecturally should be treated as such.
+1. Существует четкая политика управления криптографическими ключами и жизненный цикл криптографического ключа соответствует стандарту управления ключами, например NIST SP 800-57.
+2. Пользователи криптографических сервисов защищают конфиденциальные данные и другие секреты с помощью хранилищ ключей или альтернатив на основе API.
+3. Все ключи и пароли заменяемы, работают через четко определенный процесс для возможности повторного шифрования конфиденциальных данных при смене ключа / пароля.
+4. Все ключи, пароли или секреты API, сгенерированные при помощи симметричных алгоритмов, генерируемые клиентами или предоставляемые им, используются только для защиты секретов с низким уровнем риска, например, при шифровании локального хранилища, для временного использования, как, например, обфусация параметров. Обмен секретами с клиентами производится эквивалентно чистому тексту с архитектурной точки зрения. 
 
-### V1.12 Secure File Upload Architectural Requirements
+### V1.12 Безопасная загрузка файлов
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify that user-uploaded files are stored outside of the web root.
-2. Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to reduce the risk from XSS vectors or other attacks from the uploaded file.
+1. Загружаемые пользователями файлы хранятся вне директории веб-приложения. 
+2. Загруженные пользователями файлы, если требуется их отображение или загрузка через приложение, обрабатываются через MIME-тип `application/octet-stream` или через внешний домен, как, например, облачное хранилище. Реализована подходящая политика безопасности контента, чтобы снизить риск от XSS-векторов или других атак со стороны загруженного файла.
 
-### V1.14 Configuration Architectural Requirements
+### V1.14 Конфигурация
 
-**Medium & High requirements:**
+**Средние и высокие требования:**
 
-1. Verify the segregation of components of differing trust levels through welldefined security controls, firewall rules, API gateways, reverse proxies, cloudbased security groups, or similar mechanisms.
-2. Verify that if deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints.
-3. Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions.
-4. Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.
-5. Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization.
-6. Verify the application does not use unsupported, insecure, or deprecated clientside technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets.
+1. Компоненты разделены на разные уровни доверия через четко определенную схему контроля безопасности, правила брандмауэра, API-шлюзы, обратные прокси, облачные группы безопасности или похожие механизмы. 
+2. При развертывании исполняемых файлов на недоверенных устройствах используются подписи, доверенные соединения и проверенные конечные точки. 
+3. Пайплайны предупреждают об устаревших и небезопасных компонентах при сборке и при необходимости прерывают сборку. 
+4. Пайплайн содержит этап сборки для автоматической сборки и подтверждения безопасного развертывания приложения, особенно если инфраструктура приложения определяется кодом \(Software-defined infrastructure или SDI\), например, скрипты сборки облачного окружения.
+5. Развертывание приложения изолировано, контейнеризовано на сетевом уровне, чтобы осложнить и задержать атаку из других приложений, особенно, если атакующие производят десериализацию.
+6. Приложение не использует неподдерживаемые, небезопасные или устаревшие технологии на стороне клиента, например плагины NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL, или Java апплеты на стороне клиента.
 
-### V2.2 General Authenticator Requirements
+### V2.2 Общие требования к аутентификатору
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:**
 
-1. Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification.
+1. Уведомления безопасности отправляются пользователям после обновлений в части аутентификации, например, при смене учетных данных, вход из неизвестных или опасных локаций. Предпочтительно использование PUSH-уведомлений вместо SMS или уведомлений по электронной почте, а в случае отсутствия возможности отправлять PUSH-уведомления, SMS или email-уведомления не должны содержать конфиденциальной информации. 
 
-**High only requirements:** 
+**Только высокие требования::** 
 
-1. Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent \(such as connected keys with a push to authenticate\), or at higher AAL levels, client-side certificates.
-2. Verify that where a credential service provider \(CSP\) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints.
-3. Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes.
-4. Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key.
+1. Используется защита от выдачи атакующего за клиента вследствие фишинг атак, например, через многофакторную аутентификацию, использование крипторафических устройств с подтверждением \(например, привязанные ключи, требующие нажатия для аутентификации\) или через аутентификацию на высших уровнях ALL \(Authenticator Assurance Level\), сертификаты на стороне клиента. 
+2. Поставщик учетных данных \(credential service provider или CSP\) и приложение, проверяющее подлинность аутентификации, разделены и между ними находится аутентифицированный обеими сторонами TLS. 
+3. Реализована защита от атаки повторного воспроизведения через использование OTP-устройств, криптографических аутентификаторов или кодов подтверждения. 
+4. При попытке аутентификации, приложение требует ввода OTP-токена или действия, заданного пользователем, например, нажатия кнопки на ключе FIDO. 
 
-### V2.3 Authenticator Lifecycle Requirements
+### V2.3 Жизненный цикл аутентификатора
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:** 
 
-1. Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers, and expire after a short period of time. These initial secrets must not be permitted to become the long term password.
+1. Сгенерированные системой начальные пароли или коды активации создаются с помощью генератора случайных чисел, должны содержать не менее 6 символов, могут содержать буквы и цифры, истекать через короткий период времени. Эти начальные секреты не используются в долгосрочной перспективе. 
 
-**Medium and high requirements only:** 
+**Только средние и высокие требования:**
 
-1. Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens.
-2. Verify that renewal instructions are sent with sufficient time to renew time bound authenticators.
+1. Поддерживается регистрация и использование выбранных пользователями устройств аутентификации, как, например токены U2F или FIDO. 
+2. При приближении окончания срока действия аутентификатора, инструкции по обновлению отправляются пользователю с учетом достаточного времени для прохождения процедуры обновления. 
 
 ### V2.4 Credential Storage Requirements
 
