@@ -1,4 +1,4 @@
-# Front, back end Checklists \(rus\)
+# ASVS V4: Чеклисты для управления, frontend и backend
 
 ## Управление 
 

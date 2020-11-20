@@ -14,8 +14,8 @@
 
 * [SDLC \(Secure Development Lifecycle\)](sdlc-secure-development-lifecycle.md)
 * [ASVS V4 Checklists](asvs-v4-checklists.md)
-* [Front, back end Checklists](front-back-end-checklists.md)
-* [Front, back end Checklists \(rus\)](front-back-end-checklists-rus.md)
+* [ASVS v4 checklists for governance, frontend and backend](front-back-end-checklists.md)
+* [ASVS V4: Чеклисты для управления, frontend и backend](front-back-end-checklists-rus.md)
 
 ## Practices implementation
 
