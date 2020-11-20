@@ -188,15 +188,16 @@
 1. Поддерживается регистрация и использование выбранных пользователями устройств аутентификации, как, например токены U2F или FIDO. 
 2. При приближении окончания срока действия аутентификатора, инструкции по обновлению отправляются пользователю с учетом достаточного времени для прохождения процедуры обновления. 
 
-### V2.4 Credential Storage Requirements
+### \*V2.4 Хранение учетных данных 
 
-**Medium and high requirements:** 
+**Средние и высокие требования:**
 
-1. Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved oneway key derivation or password hashing function. Key derivation and password hashing functions take a password, a salt, and a cost factor as inputs when generating a password hash.
-2. Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored.
-3. Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations.
-4. Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13.
-5. Verify that an additional iteration of a key derivation function is performed, using a salt value that is secret and known only to the verifier. Generate the salt value using an approved random bit generator \[SP 800-90Ar1\] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords \(e.g., in a specialized device like a hardware security module\).
+1. \*Пароли хранятся в форме, устойчивой к офлайн атакам. Пароли должны быть хешированы с добавлением "соли" с использованием утвержденной функции шифрования ключа или функции хеширования пароля. Эти функции берут пароль, соль и фактор стоимости на вход, когда генерируют хэш пароля. 
+2. Соль содержит в себе не менее 32 битов и была создана рандомно для минимизации возможности повторного использования этой соли среди хранимых хешей. Для каждого набора учетных данных хранится уникальное значение соли и сгенерированный хэш. 
+3. Если используется PBKDF2, количество итераций должно быть велико настолько, насколько позволяет производительность верификационного сервера, что часто составляет 100 000 итераций. 
+4. Если используется bcrypt, фактор работы должен быть высоким настолько, насколько это позволяет производительность сервера, что часто составляет минимум 13 единиц. 
+5. Используется дополнительная итерация функции формирования ключа, где значение соли хранится в секрете и доступно только верификатору. Значение соли генерируется с использованием генератора рандомного бита \[SP 800-90Ar1\], при этом 
+6. 7. Verify that an additional iteration of a key derivation function is performed, using a salt value that is secret and known only to the verifier. Generate the salt value using an approved random bit generator \[SP 800-90Ar1\] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords \(e.g., in a specialized device like a hardware security module\).
 
 ### V2.5 Credential Recovery Requirements
 
