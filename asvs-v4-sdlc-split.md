@@ -1,5 +1,17 @@
 # ASVS V4 SDLC Split \(draft\)
 
+**Low - First steps, automated, or whole of portfolio view** 
+
+An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists. Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications. Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.
+
+**Medium - Most applications** 
+
+An application achieves ASVS Level 2 \(or Standard\) if it adequately defends against most of the risks associated with software today. Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks. OWASP Application Security Verification Standard 4.0 11 Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+
+**High - High value, high assurance, or high safety** 
+
+ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc. Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 \(or Advanced\) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design. An application at ASVS Level 3 requires more in depth analysis or architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way \(to facilitate resiliency, scalability, and most of all, layers of security\), and each module \(separated by network connection and/or physical instance\) takes care of its own security responsibilities \(defense in depth\), that need to be properly documented. Responsibilities include controls for ensuring confidentiality \(e.g. encryption\), integrity \(e.g. transactions, input validation\), availability \(e.g. handling load gracefully\), authentication \(including between systems\), non-repudiation, authorization, and auditing \(logging\).
+
 ## Governance 
 
 ### V1.1 Secure Software Development Lifecycle Requirements
@@ -16,7 +28,7 @@
 
 ## Design \(architecture\)
 
-
+Listed are key requirements. Check the Verification domain below and make sure these requirements are met.  
 
 ### V1.7 Errors, Logging and Auditing Architectural Requirements
 
@@ -37,13 +49,9 @@
 **Medium & High requirements:**
 
 1. Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.
-2. Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains.
+2. Verify that application components verify the authenticity of each side in a communication link to prevent man-in-the-middle attacks. For example, application components should validate TLS certificates and chains.
 
 ### V1.10 Malicious Software Architectural Requirements
-
-**Medium & High requirements:**
-
-1. Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes.
 
 ### V1.11 Business Logic Architectural Requirements
 
@@ -361,6 +369,20 @@
 5. Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.
 
 ## Build & Deploy 
+
+### V10.1 Code Integrity Controls
+
+**High requirements only:**
+
+1. Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.
+
+### V10.3 Deployed Application Integrity Controls
+
+**Low, medium and high requirements:**
+
+1. Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.
+2. Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.
+3. Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets \(autogen-bucket-id.cloud.example.com\) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.
 
 ### V14.1 Build
 
@@ -706,19 +728,7 @@
 1. Verify that regular backups of important data are performed and that test restoration of data is performed.
 2. Verify that backups are stored securely to prevent data from being stolen or corrupted.
 
-### V10.1 Code Integrity Controls
-
-**High requirements only:**
-
-1. Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.
-
-### V10.3 Deployed Application Integrity Controls
-
-**Low, medium and high requirements:**
-
-1. Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.
-2. Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.
-3. Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets \(autogen-bucket-id.cloud.example.com\) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.
+### 
 
 
 
