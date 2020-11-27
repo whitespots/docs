@@ -28,7 +28,7 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 
 ## Design \(architecture\)
 
-Listed are key requirements. Check the Verification domain below and make sure these requirements are met.  
+Listed here are key requirements. Check the Verification domain below and make sure these requirements are met.  
 
 ### V1.7 Errors, Logging and Auditing Architectural Requirements
 
