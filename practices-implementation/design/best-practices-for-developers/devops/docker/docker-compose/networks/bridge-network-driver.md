@@ -101,7 +101,7 @@ networks:
       name: my-net
 ```
 
-In the previous example in the webserver's "ports" section we've defined `container_name` . Now we'll create another container on this network to make sure these ports are available by calling `container_name` using `nc` and `wget` commands:
+ Now we'll create another container on this network to make sure these ports are available by calling `container_name` using `nc` and `wget` commands:
 
 ```text
 version: '3.3'

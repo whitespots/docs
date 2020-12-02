@@ -31,6 +31,7 @@
         * [Docker-compose](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/README.md)
           * [Networks](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/README.md)
             * [Bridge network driver](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/bridge-network-driver.md)
+            * [Bridge network driver \(rus\)](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/bridge-network-driver-rus.md)
           * [Volumes, bind mounts or tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts/README.md)
             * [Volumes, bind mounts или tmpfs mounts](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts/untitled.md)
             * [Volumes](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/volumes-bind-mounts-or-tmpfs-mounts/volumes/README.md)
