@@ -16,7 +16,8 @@
 * [ASVS V4 Checklists](asvs-v4-checklists.md)
 * [ASVS v4 checklists for governance, frontend and backend](front-back-end-checklists.md)
 * [ASVS V4: Чеклисты для управления, frontend и backend](front-back-end-checklists-rus.md)
-* [ASVS V4 SDLC Split \(draft\)](asvs-v4-sdlc-split.md)
+* [ASVS V4 SDLC Split \(draft\)](asvs-v4-sdlc-split/README.md)
+  * [ASVS V4 SDLC Split \(rus\)](asvs-v4-sdlc-split/asvs-v4-sdlc-split-rus.md)
 
 ## Practices implementation
 
