@@ -147,8 +147,6 @@ Listed here are key requirements. Check the Verification domain below and make s
 1. Поддерживается регистрация и использование выбранных пользователями устройств аутентификации, как, например токены U2F или FIDO. 
 2. При приближении окончания срока действия аутентификатора, инструкции по обновлению отправляются пользователю с учетом достаточного времени для прохождения процедуры обновления. 
 
-### 
-
 ### \*V2.4 Хранение учетных данных 
 
 **Средние и высокие требования:**
@@ -277,114 +275,114 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 **Низкие, средние и высокие требования:**
 
-1. Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols.
-2. Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred.
-3. Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite.
+1. TLS используется для всех клиентских соединений и под нагрузкой не используется другой небезопасный протокол коммуникации. 
+2. Используются онлайн или обновленные средства тестирования TLS, которые проверяют, что используются только надежные алгоритмы, шифры. 
+3. Устаревшие версии SSL и TLS протоколов, алгоритмов, шифров и конфигураций отключены. Например, отключены SSLv2, SSLv3 или TLS 1.0 и 1.1. 
 
-### V9.2 Server Communications Security Requirements
+### V9.2 Безопасность серверных коммуникаций
 
-**Medium and high requirements:**
+**Средние и высокие требования:** 
 
-1. Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected.
-2. Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.
-3. Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated.
-4. Verify that proper certification revocation, such as Online Certificate Status Protocol \(OCSP\) Stapling, is enabled and configured.
+1. Соединения от и к серверу используют доверенные TLS сертификаты. Когда используются самоподписанные сертификаты, сервер должен быть настроен доверять только специальным внутренним центрам сертификации. Остальные должны быть отклонены.  
+2. Для всех входящих и исходящих соединений используется защищенный \(с использованием шифрования\) протокол коммуникации, такой как TLS, включая управление портами, мониторинг, аутентификацию, API, вызовы веб-сервисов, базы данных, облачные, бессерверные, мейнфрейм, внешние и партнерские соединения. Сервер под нагрузкой не должен переключаться на использование незашифрованных протоколов. 
+3. Все зашифрованные соединения с внешними системами, при которых используется конфиденциальная информация или функции, аутентифицируются. 
+4. Используется надежное средство отзыва сертификатов, например подключена и настроена система Online Certificate Status Protocol \(OCSP\) Stapling.
 
-**High requirements only:**
+**Только высокие требования:** 
 
-1. Verify that backend TLS connection failures are logged.
+1. Ошибки соединений TLS логируются на бекенде. 
 
-### V10.2 Malicious Code Search
+### V10.2 Поиск вредоносного кода
 
-**Medium and high requirements:**
+**Средние и высокие требования:**
 
-1. Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.
-2. Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location.
+1. Исходный код приложения и сторонних библиотек не содежрит функций неавторизованного сбора данных. Если такая функциональность существует, получите пользовательское разрешение на сбор данных, прежде чем его производить. 
+2. Приложение не запрашивает чрезмерный доступ к разрешениям в части приватных функций или сенсоров, например, доступ к контактам, камерам, микрофонам или геолокации. 
 
-**High requirements only:**
+**Только высокие требования:** 
 
-1. Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.
-2. Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.
-3. Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.
-4. Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality.
+1. Исходный код приложения и сторонние библиотеки не содержат бекдоров, как, например, жестко закодированных или дополнительных недокументированных  аккаунтов, ключей, обфускаций, недокументированных бинарных объектов, руткитов, анти-дебаг или небезопасный дебаг или иным образом устаревшую, небезопасную или скрытую функциональность, которую атакующий может использовать, если обнаружит. 
+2. Исходный код приложения и сторонние библиотеки не содержат бомб замедленного действия, весь код просканирован на наличие функций, связанных с датой и временем. 
+3. Исходный код приложения и сторонние библиотеки не содержат вредоносного кода, например, salami attacks, logic bypasses, logic bombs.
+4. Исходный код приложения и сторонние библиотеки не содержат в себе пасхальных яиц или иной нежелаемой функциональности. 
 
-### V12.2 File Integrity Requirements
+### V12.2 Целостность файлов
 
-**Medium and high requirements:**
+**Средние и высокие требования:**
 
-1. Verify that files obtained from untrusted sources are validated to be of expected type based on the file's content.
+1. Контент файлов, полученных от недоверенных источников, проверяется на соответствие формату. 
 
-### V12.3 File execution Requirements
+### V12.3 Обработка файлов
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that user-submitted filename metadata is not used directly with system or framework file and URL API to protect against path traversal.
-2. Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files \(LFI\).
-3. Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files \(RFI\), which may also lead to SSRF.
-4. Verify that the application protects against reflective file download \(RFD\) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename.
-5. Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection.
+1. Отправленные пользователем метаданные файла не используются напрямую системой,  фреймворком или API URL, чтобы избежать уязвимости path traversal.
+2. Имя файла, отправленного пользователем, валидируется или игнорируется, чтобы предотвратить раскрытие, создание, обновление или удаление локальных файлов \(LFI\).
+3. Имя файла, отправленного пользователем, валидируется или игнорируется, чтобы предотвратить раскрытие или запуск удаленных файлов \(RFI\), что может также привести к SSRF атаке. 
+4. Приложение защищено от атаки reflective file download \(RFD\), оно валидирует или игнорирует отправленные пользователем имена файлов в JSON, JSONP или URL параметрах, в ответах заголовки Content-Type должны содержать чистый текст, заголовки Content-Disposition должны иметь фиксированное имя файла. 
+5. Метаданные недоверенных файлов не используются напрямую в API или библиотеках для предотвращения инъекций команд в ОС. 
 
-**Medium and high requirements only:**
+**Только средние и высокие требования:** 
 
-1. Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs.
+1. Приложение не включает в себя и не исполняет функционал из недоверенных источников, как, например, из неподтвержденных CDN, библиотек JavaScript, npm библиотек или серверных DLL. 
 
-### V12.4 File Storage Requirements
+### V12.4 Хранение файлов
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation.
-2. Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content.
+1. Файлы, полученные из недоверенных источников, хранятся за пределами директории веб-приложения, ограничены в разрешениях со строгой валидацией. 
+2. Файлы, полученные из недоверенных источников, сканируются антивирусом, чтобы предотвратить загрузку известного вредоносного кода. 
 
-### V12.6 SSRF Protection Requirements
+### V12.6 Защита от SSRF
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that the web or application server is configured with a whitelist of resources or systems to which the server can send requests or load data/files from.
+1. В приложении и на сервере используется белый список ресурсов и систем, к которым сервер может отправлять запросы или с которых он может загружать данные и файлы. 
 
-### V13.4 GraphQL and other Web Service Data Layer Security Requirements
+### V13.4 GraphQL и прочие слои данных веб-сервисов
 
-**Medium and high requirements:**
+**Средние и высокие требования:**
 
-1. Verify that query whitelisting or a combination of depth limiting and amount limiting should be used to prevent GraphQL or data layer expression denial of service \(DoS\) as a result of expensive, nested queries. For more advanced scenarios, query cost analysis should be used.
-2. Verify that GraphQL or other data layer authorization logic should be implemented at the business logic layer instead of the GraphQL layer.
+1. Белый список запросов или комбинация лимитов на глубину и количество запросов используются для предотвращения DoS, как результата сложных, вложенных запросов. Для более продвинутых сценариев, следует использовать анализ стоимости запроса. 
+2. Авторизация в GraphQL или ином другом слое данных производится на уровне бизнес-логики, вместо уровня GrapgQL. 
 
-### V14.5 Validate HTTP Request Header Requirements
+### V14.5 Валидация заголовков HTTP запросов
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that the application server only accepts the HTTP methods in use by the application or API, including pre-flight OPTIONS.
-2. Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker.
-3. Verify that the cross-domain resource sharing \(CORS\) Access-Control-AllowOrigin header uses a strict white-list of trusted domains to match against and does not support the "null" origin.
+1. Сервер приложения принимает только те методы HTTP, которые используются приложением или API, включая pre-flight OPTIONS. 
+2. Полученный заголовок Origin не используется для аутентификации или в управлении доступом, так как этот заголовок может быть легко изменен атакующим. 
+3. Заголовок cross-domain resource sharing \(CORS\) Access-Control-AllowOrigin использует строгий белый список доверенных доменов и не принимает параметр "null".
 
-**Medium and high requirements only:**
+**Только средние и высокие требования:** 
 
-1. Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.
+1. Заголовки HTTP, добавленные доверенными прокси или через SSO, аутентифицируются приложением. 
 
-### V5.1 Input Validation Requirements
+### V5.1 Проверка ввода
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:**
 
-1. Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters \(GET, POST, cookies, headers, or environment variables\).
-2. Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar.
-3. Verify that all input \(HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc\) is validated using positive validation \(whitelisting\).
-4. Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern \(e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match\).
-5. Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.
+1. Приложение защищено от атак загрязнения HTTP параметров, особенно, если фреймворк приложения не различает источник параметров запроса \(GET, POST, куки, заголовки или переменные окружения. 
+2. Фреймворк защищен от массового присвоения параметров или приложение имеет контр-меры, чтобы предотвратить небезопасное присвоение параметров. 
+3. Весь ввод \(поля форм HTML, запросы REST, параметры URL, заголовки HTTP, куки, исполняемые файлы, RSS рассылки и прочее\) валидируются с использованием белого списка. 
+4. Все структурированные данные строго типизированы и валидируются через описанную схему, содержащую разрешенные символы, длину и патерны \(номера кредитных карт или телефон или проверка на факт соответствия указанного города индексу\). 
+5. URL перенаправляет только на ресурсы из белого списка или показывает предупреждение, когда перенаправление происходит на потенциально ненадежный контент. 
 
-## Build & Deploy 
+## Сборка и развертывание
 
-### V10.1 Code Integrity Controls
+### V10.1 Контроль целостности кода
 
-**High requirements only:**
+**Высокие требования:** 
 
-1. Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.
+1. Используется средство анализа кода, выявляющее потенциально уязвимый код, как, например функции времени, небезопасные операции с файлами и сетевые соединения. 
 
-### V10.3 Deployed Application Integrity Controls
+### V10.3 Контроль целостности развернутого приложения
 
-**Low, medium and high requirements:**
+**Низкие, средние и высокие требования:**
 
-1. Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.
-2. Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.
-3. Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets \(autogen-bucket-id.cloud.example.com\) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.
+1. Приложение имеет функцию автообновления клиента или сервера, обновления происходят через защищенный канал с использованием цифровой подписи. Код обновления должен подтверждать цифровую подпись прежде чем устанавливать или исполнять обновление. 
+2. Приложение использует защиту целостности, как, например, подпись кода или целостность подресурса. Приложение не должно загружать или исполнять код из недоверенных источников, как, например, плагины, код, библиотеки. 
+3. Приложение имеет защиту от угона поддоменов. Проверяются записи DNS или CNAME на предмет устарелости. Производится регулярная проверка доменных имен, используемых в приложении на предмет истечения срока действия или изменения. 
 
 ### V14.1 Сборка
 
@@ -413,48 +411,48 @@ Listed here are key requirements. Check the Verification domain below and make s
 2. Существует перечень всех используемых сторонних библиотек. 
 3. Сторонние библиотеки работают из песочницы или через wrapper'ы, чтобы добиться только требуемого от них поведения в приложении для уменьшения поверхности атаки.
 
-## Verification 
+## Тестирование 
 
-### V2.1 Password Security Requirements
+### V2.1 Безопасность паролей
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:**
 
-1. Verify that user set passwords are at least 12 characters in length.
-2. Verify that passwords 64 characters or longer are permitted.
-3. Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced.
-4. Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 12 emoji or 64 kanji characters should be valid and permitted.
-5. Verify users can change their password.
-6. Verify that password change functionality requires the user's current and new password.
-7. Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally \(such as the top 1,000 or 10,000 most common passwords which match the system's password policy\) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new nonbreached password.
-8. Verify that a password strength meter is provided to help users set a stronger password.
-9. Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters.
-10. Verify that there are no periodic credential rotation or password history requirements.
-11. Verify that "paste" functionality, browser password helpers, and external password managers are permitted.
-12. Verify that the user can choose to either temporarily view the entire masked password, or temporarily view the last typed character of the password on platforms that do not have this as native functionality.
+1. Пароли, установленные пользователем, не менее 12 символов в длину. 
+2. Пароли длиннее 64 символов разрешены. 
+3. Пароли могут содержать пробелы и они не обрезаются. 
+4. Символы юникода разрешены в паролях. 
+5. Пароли могут менять их пароль. 
+6. Смена пароля требует ввода текущего и нового пароля. 
+7. Введенные при регистрации, логин и пароль проверяются на предмет утечки локально \(например, используя топ-1000 или топ-10000 самых частых паролей\) или используя внешний API. Если используется внешний API, то используется доказательство с нулевым разглашением или другой механизм, чтобы удостовериться, что пароль не отправляется в чистом виде. Если пароль найден в утечках, то пользователю требуется поставить новый, безопасный пароль. 
+8. Измерение сложности пароля отображается, чтобы помочь пользователю установить сложный пароль. 
+9. Нет правил составления пароля, лимитирующих использование символов. Не должно быть требования об использовании заглавных или строчных букв, чисел или специальных символов. 
+10. Нет требований к периодической ротации учетных данных или истории паролей. 
+11. Функция "вставить", расширения менеджеров паролей для браузеров и внешние менеджеры паролей разрешены. 
+12. Пользователь может временно показать замаскированный пароль или временно показать последние символы пароля. 
 
 ### V2.2 General Authenticator Requirements
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:** 
 
-1. Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
-2. Verify that the use of weak authenticators \(such as SMS and email\) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise.
+1. Используется контроль против автоматизированных атак, например перебор паролей, брутфорс, блокировка аккаунтов. Контроль включает в себя блокировку наиболее часто взламываемых паролей, мягкие блокировки, рейт-лимиты, капча, постепенное увеличение длительности блокировки между попытками, ограничения по IP адресу, ограничения по геолокации, первый логин на устройстве, последние попытки войти в аккаунт и так далее. Не более 100 проваленных попыток доступно для аккаунта в час. 
+2. Использование слабых методов аутентификации \(SMS и email\) используются только во вторую очередь и не являются заменой более безопасным методам. Более безопасные методы предлагаются пользователю в первую очередь, пользователи осведомлены о рисках или предприняты меры, чтобы ограничить риски компрометации аккаунта. 
 
-### V2.5 Credential Recovery Requirements
+### V2.5 Восстановление учетных данных 
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:**  
 
-1. Verify that a system generated initial activation or recovery secret is not sent in clear text to the user.
-2. Verify password hints or knowledge-based authentication \(so-called "secret questions"\) are not present.
-3. Verify password credential recovery does not reveal the current password in any way.
-4. Verify shared or default accounts are not present \(e.g. "root", "admin", or "sa"\).
-5. Verify that if an authentication factor is changed or replaced, that the user is notified of this event.
-6. Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as TOTP or other soft token, mobile push, or another offline recovery mechanism.
+1. Сгенерированный системой начальный ключ активации или восстановления секрета не отправляется в виде чистого текста пользователю. 
+2. Подсказки для паролей или "секретные вопросы" не используются. 
+3. Процесс восстановления пароля не показывает текущий пароль. 
+4. Общие аккаунты и стандартные \(например, "root", "admin" или "sa"\) не представлены в системе. 
+5. Если способ аутентификации изменен или удален, пользователь уведомляется об этом. 
+6. При восстановлении пароля или при иных действиях восстановления, используется безопасный механизм восстановления, например, TOTP или пуш-уведомления или другой механизм восстановления офлайн. 
 
-**Medium and high requirements only:** 
+**Только средние и высокие требования:** 
 
-1. Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment.
+1. Если данные для мультифакторной аутентификации утеряны, то для восстановления требуется данных и действий не меньше, чем при регистрации. 
 
-### V2.6 Look-up Secret Verifier Requirements
+### \*\*\*V2.6 Look-up Secret Verifier Requirements
 
 **Medium and high requirements:** 
 
@@ -462,7 +460,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 2. Verify that lookup secrets have sufficient randomness \(112 bits of entropy\), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash.
 3. Verify that lookup secrets are resistant to offline attacks, such as predictable values.
 
-### V2.7 Out of Band Verifier Requirements
+### \*\*\*V2.7 Out of Band Verifier Requirements
 
 **Low, medium and high requirements:** 
 
@@ -476,36 +474,36 @@ Listed here are key requirements. Check the Verification domain below and make s
 1. Verify that the out of band verifier retains only a hashed version of the authentication code.
 2. Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy \(typically a six digital random number is sufficient\).
 
-### V2.8 Single or Multi Factor One Time Verifier Requirements
+### V2.8 Одноразовый код при одно- и мультифакторной верификации
 
-**Low, medium and high requirements:** 
+**Низкие, средние и высокие требования:** 
 
-1. Verify that time-based OTPs have a defined lifetime before expiring.
+1. Одноразовые пароли истекают за определенное время. 
 
-**Medium and high requirements only:** 
+**Только средние и высокие требования:** 
 
-1. Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage.
-2. Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.
-3. Verify that time-based OTP can be used only once within the validity period.
-4. Verify that if a time-based multi factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device.
-5. Verify physical single factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location.
-6. Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know.
+1. Используются симметричные ключи, чтобы отправленные ключи были хорошо защищены, например, используются аппаратные модули безопасности или хранилища ключей на основе безопасной ОС. 
+2. Используются надежные криптографические алгоритмы при генерации и верификации. 
+3. Одноразовый пароль может быть использовать только один раз в период его действия. 
+4. Если одноразовый токен использован более одного раза, то это действие логируется и токен отвергается с отправкой уведомления безопасности владельцу устройства. 
+5. Физический генератор одноразовых паролей может быть отозван в случае его кражи или потери. Все активные сессии, в которых используются ключи этого устройства, отзываются вне зависимости от локации. 
+6. Биометрическая аутентификация используется только как дополнительное средство аутентификации вместе с использованием чего-нибудь, что пользователь имеет или с тем, что он знает. 
 
-### V2.9 Cryptographic Software and Devices Verifier Requirements
+### V2.9 Криптографическое ПО и устройства верификации
 
-**Medium and high requirements:**
+**Средние и высокие требования:**
 
-1. Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a TPM or HSM, or an OS service that can use this secure storage.
-2. Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device.
-3. Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.
+1. Криптографические ключи, используемые при верификации, хранятся в безопасности и защищены от раскрытия. Например, используется  TPM или HSM или сервис ОС, использующий секретное хранилище. 
+2. Случайное число составляет не менее 64 битов в длину, статистически уникально или уникально на время использования криптографического устройства. 
+3. Используются проверенные алгоритмы при генерации и верификации. 
 
-### V2.10 Service Authentication Requirements
+### V2.10 Аутентификация сервисов
 
-**Medium and high requirements:** 
+**Средние и высокие требования:** 
 
-1. Verify that integration secrets do not rely on unchanging passwords, such as API keys or shared privileged accounts.
-2. Verify that if passwords are required, the credentials are not a default account.
-3. Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access.
+1. Секреты интеграций не зависят от несменяемых паролей \(API ключи, общие привилегированные аккаунты\)
+2. Пароли хранятся в безопасном месте, чтобы предотвратить восстановление их офлайн перебором. 
+3. Пароли, интеграции с базами данных и сторонними системами, внутренние секреты и ключи API хранятся безопасно и не включены в исходный код и не хранятся в репозиториях исходного кода. Хранилище секретов должно быть устойчиво к офлайн перебору
 4. Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store \(L1\), hardware trusted platform module \(TPM\), or a hardware security module \(L3\) is recommended for password storage.
 
 ### V3.1 Fundamental Session Management Requirements
