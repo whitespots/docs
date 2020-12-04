@@ -8,6 +8,10 @@
 **Host networks** are best when the network stack should not be isolated from the Docker host, but you want other aspects of the container to be isolated.
 {% endhint %}
 
+{% hint style="warning" %}
+**Use the host network only when it is clearly necessary. All network ports of the application will be available at the host level, which is a threat.**
+{% endhint %}
+
 The goal of this tutorial is to start a `nginx` container which binds directly to port 80 on the Docker host. From a networking point of view, this is the same level of isolation as if the `nginx` process were running directly on the Docker host and not in a container. However, in all other ways, such as storage, process namespace, and user namespace, the `nginx` process is isolated from the host.
 
 ### Prerequisites <a id="prerequisites"></a>
