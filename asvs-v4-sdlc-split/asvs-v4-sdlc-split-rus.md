@@ -430,13 +430,6 @@ Listed here are key requirements. Check the Verification domain below and make s
 11. Функция "вставить", расширения менеджеров паролей для браузеров и внешние менеджеры паролей разрешены. 
 12. Пользователь может временно показать замаскированный пароль или временно показать последние символы пароля. 
 
-### V2.2 General Authenticator Requirements
-
-**Низкие, средние и высокие требования:** 
-
-1. Используется контроль против автоматизированных атак, например перебор паролей, брутфорс, блокировка аккаунтов. Контроль включает в себя блокировку наиболее часто взламываемых паролей, мягкие блокировки, рейт-лимиты, капча, постепенное увеличение длительности блокировки между попытками, ограничения по IP адресу, ограничения по геолокации, первый логин на устройстве, последние попытки войти в аккаунт и так далее. Не более 100 проваленных попыток доступно для аккаунта в час. 
-2. Использование слабых методов аутентификации \(SMS и email\) используются только во вторую очередь и не являются заменой более безопасным методам. Более безопасные методы предлагаются пользователю в первую очередь, пользователи осведомлены о рисках или предприняты меры, чтобы ограничить риски компрометации аккаунта. 
-
 ### V2.5 Восстановление учетных данных 
 
 **Низкие, средние и высокие требования:**  
@@ -504,68 +497,68 @@ Listed here are key requirements. Check the Verification domain below and make s
 1. Секреты интеграций не зависят от несменяемых паролей \(API ключи, общие привилегированные аккаунты\)
 2. Пароли хранятся в безопасном месте, чтобы предотвратить восстановление их офлайн перебором. 
 3. Пароли, интеграции с базами данных и сторонними системами, внутренние секреты и ключи API хранятся безопасно и не включены в исходный код и не хранятся в репозиториях исходного кода. Хранилище секретов должно быть устойчиво к офлайн перебору
-4. Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store \(L1\), hardware trusted platform module \(TPM\), or a hardware security module \(L3\) is recommended for password storage.
 
-### V3.1 Fundamental Session Management Requirements
+### V3.1 Фундаментальные принципы администрирования сеансов
 
-**Low, medium and high requirements:** 
+**Требования низкого, среднего и высокого уровня:** 
 
-1. Verify the application never reveals session tokens in URL parameters or error messages.
+1. Приложение никогда не отображает токены сессий в URL параметрах или в сообщениях об ошибках системы.
 
-### V3.2 Session Binding Requirements
+### V3.2 Требования к связи сеансов с соответствующими пользователями
 
-**Low, medium and high requirements:** 
+**Требования низкого, среднего и высокого уровней:** 
 
-1. Verify the application generates a new session token on user authentication.
-2. Verify that session tokens possess at least 64 bits of entropy.
-3. Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies \(see section 3.4\) or HTML 5 session storage.
+1. Приложение генерирует новый сессионный токен при аутентификации пользователя. 
+2. Токены включают не менее 64-х бит энтропии.
+3. Приложение хранит токены только в браузере используя безопасные методики, такие как защищённые куки, или хранение данных сеанса в HTML 5.
 
- **Medium and high requirements only:** 
+ **Требования только среднего и высокого уровней:** 
 
-1. Verify that session token are generated using approved cryptographic algorithms.
+1. Токены сеанса генерируются применяя только проверенные криптографические алгоритмы.
 
-### V3.3 Session Logout and Timeout Requirements
+### V3.3 Завершение сессии и ее таймаут
 
-**Low, medium and high requirements:** 
+**Требования низкого, среднего и высокого уровней:** 
 
-1. Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties.
-2. If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period.
+1. Выход из учётной записи, а также истечения срока аутентификации нейтрализуют токены сеанса, к примеру чтобы кнопки навигации или системы зависящие от входящих потоков не возобновляли аутентифицированный сеанс, включая системы последующих уровней зависимости. 
+2. При позволении верификатором оставаться пользователям в учётной записи, повторные аутентификации проходят периодически вне зависимости от степени активности пользователя.
 
-**Medium and high requirements only:** 
+**Требования только среднего и высокого уровней:**
 
-1. Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login \(if present\), and any relying parties.
-2. Verify that users are able to view and log out of any or all currently active sessions and devices.
+1. Приложение приостанавливает все активные сессии при смене пароля кроме той, откуда происходит успешная смена пароля. Процедура работает на всех уровнях и ветвях приложения.
+2. Пользователь имеет возможность выйти из учётных записей, приостановляя тем самым активные сессии на разных или всех устройствах.
 
-### V3.4 Cookie-based Session Management
+### V3.4 Управление куки-сессиями
 
-**Low, medium and high requirements:** 
+**Требования низкого, среднего и высокого уровней:** 
 
-1. Verify that cookie-based session tokens have the 'Secure' attribute set.
-2. Verify that cookie-based session tokens have the 'HttpOnly' attribute set.
-3. Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks.
-4. Verify that cookie-based session tokens use "\_\_Host-" prefix to provide session cookie confidentiality.
-5. Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible.
+1. токены куки имеют 
+   1. Атрибут 'Secure'. 
+   2. Атрибут 'HttpOnly'. 
+   3. Атрибут 'SameSite' для предотвращения CSRF атак \(в отличие от скриптовых аттак, они вынуждают пользователя произвести вредоносный запрос\).
+2. Токены куки используют "\_\_Host-" префикс для предоставления своей конфиденциальности.
+3. Если приложение опубликовано на домене с другими приложениями, позволяющими модифицировать куки каким-либо способом,  атрибут пути сообщается самым точным возможным способом.
 
-### V3.5 Token-based Session Management
+### V3.5 Управление токен-сессиями
 
-**Medium and high requirements only:** 
+**Требования только среднего и высокого уровней:** 
 
 1. Verify the application does not treat OAuth and refresh tokens — on their own — as the presence of the subscriber and allows users to terminate trust relationships with linked applications.
-2. Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations.
+2. Приложение использует токены сеансов вместо статичных API, секретов и ключей, если это не легаси-приложение.
 3. Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks.
 
 ### V3.6 Re-authentication from a Federation or Assertion
 
 **High requirements only:**
 
-1. Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period.
-2. Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user.
+1. Зависимые стороны указывают в CSP максимальное время для прохождения аутентификации, а CSP требует повторной аутентификации, если сторона не использовали выданную сессию за указанное время. 
+2. CSP информирует стороны о последних событиях аутентификации, чтобы дать возможность RP понять, есть ли необходимость в повторной аутентификации клиента. 
 
 ### V3.7 Defenses Against Session Management Exploits
 
 **Low, medium and high requirements:** 
 
-1. Verify the application ensures a valid login session or requires reauthentication or secondary verification before allowing any sensitive transactions or account modifications.
+1. Приложение проверяет, что используется валидная сессия или требует повторной аутентификации или верификации через второй фактор, прежде чем позволить пользователю производить конфиденциальные транзакции или вносить изменения в аккаунт. 
 
 ### V5.4 Memory, String, and Unmanaged Code Requirements
 
