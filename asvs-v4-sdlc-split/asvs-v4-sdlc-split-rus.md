@@ -12,7 +12,7 @@ An application achieves ASVS Level 2 \(or Standard\) if it adequately defends ag
 
 ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc. Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 \(or Advanced\) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design. An application at ASVS Level 3 requires more in depth analysis or architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way \(to facilitate resiliency, scalability, and most of all, layers of security\), and each module \(separated by network connection and/or physical instance\) takes care of its own security responsibilities \(defense in depth\), that need to be properly documented. Responsibilities include controls for ensuring confidentiality \(e.g. encryption\), integrity \(e.g. transactions, input validation\), availability \(e.g. handling load gracefully\), authentication \(including between systems\), non-repudiation, authorization, and auditing \(logging\).
 
-## Governance 
+## Менеджмент 
 
 ### V1.1 Требования к процессу безопасной разработки \(SSDLC\)
 
@@ -26,9 +26,9 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 6. Внедрена централизованная, простая, проверенная, безопасная система контроля безопасности, чтобы избежать дублирования, отсутствия, неэффективного или небезопасного контроля. 
 7. Всем разработчикам и тестировщикам доступны чек-листы, требования безопасности, инструкции или политики безопасности. 
 
-## Design \(architecture\)
+## Дизайн
 
-Listed here are key requirements. Check the Verification domain below and make sure these requirements are met.  
+Здесь перечислены основные требования. Проверьте домен "Тестирование", чтобы удостовериться, что и перечисленные там требования соблюдены. 
 
 ### V1.7 Ошибки, логирование и аудит
 
@@ -532,60 +532,58 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 **Требования низкого, среднего и высокого уровней:** 
 
-1. токены куки имеют 
+1. Токены куки имеют 
    1. Атрибут 'Secure'. 
    2. Атрибут 'HttpOnly'. 
    3. Атрибут 'SameSite' для предотвращения CSRF атак \(в отличие от скриптовых аттак, они вынуждают пользователя произвести вредоносный запрос\).
-2. Токены куки используют "\_\_Host-" префикс для предоставления своей конфиденциальности.
+2. Токены куки используют "\_\_Host-" префикс для подтверждения своей конфиденциальности.
 3. Если приложение опубликовано на домене с другими приложениями, позволяющими модифицировать куки каким-либо способом,  атрибут пути сообщается самым точным возможным способом.
 
 ### V3.5 Управление токен-сессиями
 
 **Требования только среднего и высокого уровней:** 
 
-1. Verify the application does not treat OAuth and refresh tokens — on their own — as the presence of the subscriber and allows users to terminate trust relationships with linked applications.
+1. Приложение не обращается к OAuth само по себе с целью обновления токенов, при этом позволяет пользователю отзывать токен от привязанных приложений. 
 2. Приложение использует токены сеансов вместо статичных API, секретов и ключей, если это не легаси-приложение.
-3. Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks.
+3. Токены используют цифровую подпись, шифрование и прочие контрмеры, чтобы предотвратить следующие атаки: parameter tampering, enveloping, replay, null cipher, key substitution.
 
-### V3.6 Re-authentication from a Federation or Assertion
+### V3.6 Повторная аутентификация
 
 **High requirements only:**
 
-1. Зависимые стороны указывают в CSP максимальное время для прохождения аутентификации, а CSP требует повторной аутентификации, если сторона не использовали выданную сессию за указанное время. 
+1. Зависимые стороны указывают в CSP максимальное время для прохождения аутентификации, а CSP требует повторной аутентификации, если сторона не использовала выданную сессию за указанное время. 
 2. CSP информирует стороны о последних событиях аутентификации, чтобы дать возможность RP понять, есть ли необходимость в повторной аутентификации клиента. 
 
-### V3.7 Defenses Against Session Management Exploits
+### V3.7 Защита системы управления сессиями от эксплоитов
 
 **Low, medium and high requirements:** 
 
 1. Приложение проверяет, что используется валидная сессия или требует повторной аутентификации или верификации через второй фактор, прежде чем позволить пользователю производить конфиденциальные транзакции или вносить изменения в аккаунт. 
 
-### V5.4 Memory, String, and Unmanaged Code Requirements
+### V5.4 Память, строка
 
 **Medium and high requirements:**
 
-1. Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows.
-2. Verify that format strings do not take potentially hostile input, and are constant.
-3. Verify that sign, range, and input validation techniques are used to prevent integer overflows.
+1. Приложение использует безопасные для памяти строки, безопасное копирование памяти и арифметику указателей, чтобы предотвратить переполнение стека, буфера или heap overflow. 
+2. Форматируемые строки не принимают потенциально опасный ввод и стабильны. 
+3. Используется валидация ввода, диапазона и подписи, чтобы предотвратить целочисленное переполнение. 
 
-### V5.5 Deserialization Prevention Requirements
-
-**Low, medium and high requirements:**
-
-1. Verify that serialized objects use integrity checks or are encrypted to prevent hostile object creation or data tampering.
-2. Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE.
-3. Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries \(such as JSON, XML and YAML parsers\).
-4. Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval\(\) to parse JSON.
-
-### V8.2 Client-side Data Protection
+### V5.5 Предотвращение десериализации 
 
 **Low, medium and high requirements:**
 
-1. Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers.
-2. Verify that data stored in client side storage \(such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies\) does not contain sensitive data or PII.
-3. Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated.
+1. Сериализованные объекты используют проверку целостности или зашифрованы, чтобы предотвратить создание вредоносного объекта или вмешательство в память. 
+2. Чтобы предотвратить XXE атаки, приложение корректно ограничивает XML парсеры, позволяя им использовать максимально ограниченную конфигурацию, чтобы удостовериться, что небезопасные опции отключены, например, разрешение внешнего ввода. 
+3. Десериализация недоверенных данных избегается или используется безопасная десериализация кастомного кода и сторонних библиотек \(например, библиотек для JSON, XML, YAML\).
+4. При парсинге JSON в браузерах или на JavaScript бекендах, используется метод JSON.parse. Для парсинга JSON не используется eval\(\). 
 
-### 
+### V8.2 Защита данных на стороне клиента 
+
+**Low, medium and high requirements:**
+
+1. Приложение устанавливает подходящие заголовки для предотвращения кеширования, чтобы предотвратить кеширование конфиденциальных данных в браузерах. 
+2. Данные, хранимые на стороне клиента \(например, локальное хранилище HTML5, хранилище сессий, IndexedDB, куки или Flash куки\) не содержат конфиденциальных или персональных данных. 
+3. Данные, получаемые после аутентификации, удаляются из хранилища на стороне клиента \(например, DOM браузера удаляется, когда сессия разорвана\). 
 
 ### \*V11.1 Безопасность бизнес-логики
 
@@ -595,7 +593,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 2. Приложение исполняет каждый шаг бизнес логики в реалистичное время для человека, другими словами, транзакции не проводятся слишком быстро. 
 3. Приложение имеет лимиты для отдельных бизнес процессов или транзакций, которые выполняются для каждого пользователя отдельно. 
 4. В приложении реализованы лимиты для обнаружения и защиты от автоматизированных атак по типу фильтрации данных, чрезмерного обращения к процессам бизнес логики, чрезмерной загрузки файлов или DOS \(отказ в обслуживании\)
-5. * Приложение имеет лимиты для бизнес логики или валидации для защиты от возможных бизнес-рисков или угроз, выявленных с помощью моделирования угроз или похожих методик. 
+5. Приложение имеет лимиты для бизнес логики или валидации для защиты от возможных бизнес-рисков или угроз, выявленных с помощью моделирования угроз или похожих методик. 
 
 **Только средние и высокие требования:**
 
@@ -603,52 +601,50 @@ Listed here are key requirements. Check the Verification domain below and make s
 2. Приложение отслеживает необычные события или активность с точки зрения бизнес-логики. Например, попытки совершить действия не по порядку или действия, которые обычный пользователь никогда бы не предпринял. 
 3. Приложение имеет настраиваемую систему оповещения об обнаружении автоматизированных атаках или необычной активности. 
 
-### V12.1 File Upload Requirements
+### V12.1 Загрузка файлов на сервер
 
 **Low, medium and high requirements:**
 
-1. Verify that the application will not accept large files that could fill up storage or cause a denial of service attack.
+1. Приложение не принимает большие файлы, которые могут заполнить хранилище или вызвать DOS атаку. 
 
 **Medium and high requirements only:**
 
-1. Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits.
-2. Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files.
+1. Архивированные файлы проверяются на наличие zip-бомб - маленьких файлов, которые, при разархивировании заполнят все хранилище. 
+2. Используется ограничение по объему загружаемого файла и количеству файлов на пользователя, чтобы пользователи не могли загружать слишком много файлов или слишком большие файлы. 
 
-### V12.5 File Download Requirements
-
-**Low, medium and high requirements:**
-
-1. Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files \(e.g. .bak\), temporary working files \(e.g. .swp\), compressed files \(.zip, .tar.gz, etc\) and other extensions commonly used by editors should be blocked unless required.
-2. Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.
-
-### V13.1 Generic Web Service Security Verification Requirements
+### V12.5 Загрузка файлов с сервера
 
 **Low, medium and high requirements:**
 
-1. Verify that all application components use the same encodings and parsers to avoid parsing attacks that exploit different URI or file parsing behavior that could be used in SSRF and RFI attacks.
-2. Verify that access to administration and management functions is limited to authorized administrators.
-3. Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.
+1. Веб настроен обслуживать файлы только с определенным разрешением, чтобы предотвратить непреднамеренную утечку кода и информации. Например, файлы восстановления \(.bak\), временные служебные файлы \(.swp\), сжатые файлы \(.zip, .tar.gz\) и прочие распространенные расширения, используемые редакторами, заблокированы, если только в них нет необходимости. 
+2. Прямые запросы к загруженным файлам не производятся с использованием HTML/JavaScript. 
+
+### V13.1 Общая безопасность веб-сервиса
+
+**Low, medium and high requirements:**
+
+1. Все компоненты приложения используют одинаковые кодировки и парсеры, чтобы предотвратить парсинг атаки, эксплуатирующие различные URI или парсинг файлов,  используемый для потенциальных SSRF и RFI атак. 
+2. Функции администрирования и менеджмента доступны только для авторизованных администраторов. 
+3. URL API не раскрывают конфиденциальную информацию, такую как ключи API и токены сессий.
 
 **Medium and high requirements only:**
 
-1. Verify that authorization decisions are made at both the URI, enforced by programmatic or declarative security at the controller or router, and at the resource level, enforced by model-based permissions.
-2. Verify that requests containing unexpected or missing content types are rejected with appropriate headers \(HTTP response status 406 Unacceptable or 415 Unsupported Media Type\).
+1. Решение об авторизации принимаются URI с использованием программного или декларативного контроля на уровне контроллера или роутера, а на ресурсном уровне используются model-based разрешения. 
+2. Запросы, содержание неожиданные или в которых отсутствуют ожидаемые content-type, отклоняются с применением подходящих HTTP-заголовков \(406 Unacceptable или 415 Unsupported Media Type\).
 
-### V13.2 RESTful Web Service Verification Requirements
+### V13.2 Безопасность RESTful веб-сервиса
 
 **Low, medium and high requirements:**
 
-1. Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.
-2. Verify that JSON schema validation is in place and verified before accepting input.
-3. Verify that RESTful web services that utilize cookies are protected from CrossSite Request Forgery via the use of at least one or more of the following: triple or double submit cookie pattern \(see references\), CSRF nonces, or ORIGIN request header checks.
+1. Включенные методы RESTful HTTP подходят для пользователей и действий. Например, у обычного пользователя нет доступа к методам DELETE или PUT на защищенных ресурсах API.
+2. Используется валидация JSON-схемы, она верифицируется, прежде чем принять ввод.   
+3. RESTful веб-сервисы, использующие куки, защищены от CSRF атак через использование как минимум одной или большего числа следующих практик: паттерн тройного или двойного предоставления куки, CSRF nonces, проверка ORIGIN заголовков запроса. 
 
 **Medium and high requirements only:**
 
-1. Verify that REST services have anti-automation controls to protect against excessive calls, especially if the API is unauthenticated.
-2. Verify that REST services explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/JSON.
-3. Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport \(TLS only\) may be sufficient in many cases as it provides both confidentiality and integrity protection. Permessage digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits.
-
-### 
+1. REST сервисы используют контроль против автоматизации атак, например, против массированных звонков, отправки СМС, если API не аутентифицировано. 
+2. REST сервисы явно проверяют входящие Content-Type заголовки на предмет содержания их в списке ожидаемых, например application/xml or application/JSON.
+3. Заголовки сообщений и их содержание являются доверенными и не были модифицированы при транспортировке. Требование использовать защищенное соединение \(TLS\) может быть достаточным во многих случаях, так как TLS предоставляет защиту конфиденциальности целостности. Цифровые подписи для каждого сообщения могут предоставить дополнительную защиту для высоко защищенных приложений, но добавляют им дополнительную комплексность, в силу чего риски могут перевесить пользу. 
 
 ### V14.3 Непреднамеренное раскрытие информации
 
@@ -662,70 +658,66 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 **Low, medium and high requirements:**
 
-1. Verify that every HTTP response contains a content type header specifying a safe character set \(e.g., UTF-8, ISO 8859-1\).
-2. Verify that all API responses contain Content-Disposition: attachment; filename="api.json" \(or other appropriate filename for the content type\).
-3. Verify that a content security policy \(CSPv2\) is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities.
-4. Verify that all responses contain X-Content-Type-Options: nosniff.
-5. Verify that HTTP Strict Transport Security headers are included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains.
-6. Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin".
-7. Verify that a suitable X-Frame-Options or Content-Security-Policy: frameancestors header is in use for sites where content should not be embedded in a third-party site.
+1. Каждый ответ HTTP содержит заголовки Content-Type, указывающие набор безопасных символов \(например, UTF-8, ISO 8859-1\).
+2. Все ответы API содержат заголовок Content-Disposition: attachment; filename="api.json" \(или другое подходящие имя\).
+3. Используется политика безопасности контента \(CSPv2\), которая помогает смягчить влияние XSS атак, таких как HTML, DOM, JSON, JavaScript инъекции. 
+4. Ответы содержат заголовок X-Content-Type-Options: nosniff.
+5. Во всех ответах на всех поддоменах используются заголовки HTTP Strict Transport Security, например, Strict-Transport-Security: max-age=15724800; includeSubdomains.
+6. Используются подходящие заголовки "Referrer-Policy", например "no-referrer" или "same-origin".
+7. Используются подходящие заголовки X-Frame-Options или Content-Security-Policy: frameancestors для тех сайтов, в которые контент не должен быть встроен. 
 
-## Operations
+## Поддержка
 
-### V7.1 Log Content Requirements
-
-**Low, medium and high requirements:**
-
-1. Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form.
-2. Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy.
-
-**Medium and high requirements only:**
-
-1. Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures.
-2. Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. 
-
-### V7.2 Log Processing Requirements
-
-**Medium and high requirements:**
-
-1. Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.
-2. Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations.
-
-### V7.3 Log Protection Requirements
-
-**Medium and high requirements:**
-
-1. Verify that the application appropriately encodes user-supplied data to prevent log injection.
-2. Verify that all events are protected from injection when viewed in log viewing software.
-3. Verify that security logs are protected from unauthorized access and modification.
-4. Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with postincident forensic analysis.
-
-### V7.4 Error Handling
+### V7.1 Логирование контента
 
 **Low, medium and high requirements:**
 
-1. Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
+1. Приложение не логирует учетные данные или детали платежей. Токены сессий хранятся в логах в хешированном виде. 
+2. Приложение не логирует конфиденциальные данные, например данные, определенные локальными законами о конфиденциальности или политиками безопасностями. 
 
 **Medium and high requirements only:**
 
-1. Verify that exception handling \(or a functional equivalent\) is used across the codebase to account for expected and unexpected error conditions.
-2. Verify that a "last resort" error handler is defined which will catch all unhandled exceptions.
+1. Приложение логирует события успешной или неудачной аутентификации, ошибки контроля доступа, ошибки десериализации и ошибки валидации ввода. 
+2. Каждое событие в логах включает в себя необходимую информацию с указанием времени, чтобы можно было провести детальное расследование последовательности действий, если произойдет инцидент. 
 
-### V8.1 General Data Protection
+### V7.2 Обработка логов
 
 **Medium and high requirements:**
 
-1. Verify the application protects sensitive data from being cached in server components such as load balancers and application caches.
-2. Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data.
-3. Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values.
-4. Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application.
+1. Все решения об аутентификации логируются без сохранения конфиденциальной информации, например, идентификаторов сессий или паролей. Логи должны включать запросы с метаданными, необходимые для расследования инцидентов. 
+2. Логируются все решения контроля доступа и все отклоненные запросы. Логи должны включать в себя зпросы с метаданными, необходимые для расследования инцидентов.
+
+### V7.3 Защита логов
+
+**Medium and high requirements:**
+
+1. Приложение помечает предоставленные пользователем данные, чтобы предотвратить инъекцию логов. 
+2. События логов защищены от инъекций, когда отображаются в ПО отображения логов. 
+3. Логи безопасности защищены от неавторизованного доступа и модификации. 
+4. Ресурсы получения времени синхронизированы с корректным временем и часовым поясом. В случае, если система глобальная, то используется UTC, чтобы облегчить анализ инцидентов. 
+
+### V7.4 Обработка ошибок
+
+**Low, medium and high requirements:**
+
+1. Показывается сообщение об ошибке, содержащее уникальный ID в случае, если произошли неожиданные ошибки или ошибки безопасности. Это требуется для облегчения расследования персоналу поддержки. 
+
+**Medium and high requirements only:**
+
+1. Используется обработка исключений во всем коде, чтобы контролировать ожидаемые и неожиданные ошибки. 
+2. Используется обработкик ошибок "last resort", чтобы получать все неожиданные исключения. 
+
+### V8.1 Общая защита данных
+
+**Medium and high requirements:**
+
+1. Приложение использует защиту от кэширования конфиденциальных данных в компонентах сервера, вроде балансировщика нагрузки и кэша приложения. 
+2. Все кэшированные или временные копии конфиденциальных данных хранятся на сервере в защищенном от неавторизованного доступа месте или зачищаются, инвалидируются после доступа авторизованного пользователя. 
+3. Приложение минимизирует количество параметров в запросе, например, скрытые поля, переменные Ajax, значения куки и заголовков. 
+4. Приложение обнаруживает и уведомляет о чрезмерном количестве запросов от IP, пользователя, о чрезмерном количестве запросов в час или за день или по другому принципу. 
 
 **High requirements only:**
 
-1. Verify that regular backups of important data are performed and that test restoration of data is performed.
-2. Verify that backups are stored securely to prevent data from being stolen or corrupted.
-
-### 
-
-
+1. Производятся регулярные резервные копии важных данных и проводятся тестовое восстановление данных. 
+2. Резервные копии хранятся безопасно для предотвращения хищения ил порчи. 
 
