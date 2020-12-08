@@ -728,6 +728,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 1. Verify that regular backups of important data are performed and that test restoration of data is performed.
 2. Verify that backups are stored securely to prevent data from being stolen or corrupted.
 
+
 ### 
 
 
