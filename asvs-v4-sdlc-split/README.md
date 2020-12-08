@@ -1,18 +1,18 @@
-# ASVS V4 SDLC Split \(draft\)
+# ASVS V4 SDLC Split
 
-**Low - First steps, automated, or whole of portfolio view** 
+**Low - First steps, automated, or whole of portfolio view**
 
 An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists. Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications. Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.
 
-**Medium - Most applications** 
+**Medium - Most applications**
 
 An application achieves ASVS Level 2 \(or Standard\) if it adequately defends against most of the risks associated with software today. Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks. OWASP Application Security Verification Standard 4.0 11 Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
 
-**High - High value, high assurance, or high safety** 
+**High - High value, high assurance, or high safety**
 
 ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc. Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 \(or Advanced\) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design. An application at ASVS Level 3 requires more in depth analysis or architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way \(to facilitate resiliency, scalability, and most of all, layers of security\), and each module \(separated by network connection and/or physical instance\) takes care of its own security responsibilities \(defense in depth\), that need to be properly documented. Responsibilities include controls for ensuring confidentiality \(e.g. encryption\), integrity \(e.g. transactions, input validation\), availability \(e.g. handling load gracefully\), authentication \(including between systems\), non-repudiation, authorization, and auditing \(logging\).
 
-## Governance 
+## Governance
 
 ### V1.1 Secure Software Development Lifecycle Requirements
 
@@ -28,7 +28,7 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 
 ## Design \(architecture\)
 
-Listed here are key requirements. Check the Verification domain below and make sure these requirements are met.  
+Listed here are key requirements. Check the Verification domain below and make sure these requirements are met.
 
 ### V1.7 Errors, Logging and Auditing Architectural Requirements
 
@@ -55,7 +55,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V1.11 Business Logic Architectural Requirements
 
-**Medium requirements:** 
+**Medium requirements:**
 
 1. Verify the definition and documentation of all application components in terms of the business or security functions they provide.
 2. Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state.
@@ -63,8 +63,6 @@ Listed here are key requirements. Check the Verification domain below and make s
 **High requirements:**
 
 1. Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
-
-
 
 ### V1.2 Authentication Architectural Requirements
 
@@ -123,33 +121,31 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V2.2 General Authenticator Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification.
 
-**High only requirements:** 
+**High only requirements:**
 
 1. Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent \(such as connected keys with a push to authenticate\), or at higher AAL levels, client-side certificates.
 2. Verify that where a credential service provider \(CSP\) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints.
 3. Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes.
 4. Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key.
 
-
-
 ### V2.3 Authenticator Lifecycle Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers, and expire after a short period of time. These initial secrets must not be permitted to become the long term password.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens.
 2. Verify that renewal instructions are sent with sufficient time to renew time bound authenticators.
 
 ### V2.4 Credential Storage Requirements
 
-**Medium and high requirements:** 
+**Medium and high requirements:**
 
 1. Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved oneway key derivation or password hashing function. Key derivation and password hashing functions take a password, a salt, and a cost factor as inputs when generating a password hash.
 2. Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored.
@@ -159,7 +155,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V4.1 General Access Control Design
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
 2. Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.
@@ -169,19 +165,19 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V4.2 Operation Level Access Control
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that sensitive data and APIs are protected against direct object attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records.
 2. Verify that the application or framework enforces a strong anti-CSRF mechanism to protect authenticated functionality, and effective anti-automation or anti-CSRF protects unauthenticated functionality.
 
 ### V4.3 Other Access Control Considerations
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use.
 2. Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS\_Store, .git or .svn folders.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify the application has additional authorization \(such as step up or adaptive authentication\) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud.
 
@@ -247,7 +243,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 1. Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module's approved cryptographically secure random number generator when these random values are intended to be not guessable by an attacker.
 2. Verify that random GUIDs are created using the GUID v4 algorithm, and a cryptographically-secure pseudo-random number generator \(CSPRNG\). GUIDs created using other pseudo-random number generators may be predictable.
 
-**High requirements only:** 
+**High requirements only:**
 
 1. Verify that random numbers are created with proper entropy even when the application is under heavy load, or that the application degrades gracefully in such circumstances. 
 
@@ -360,7 +356,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V5.1 Input Validation Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters \(GET, POST, cookies, headers, or environment variables\).
 2. Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar.
@@ -368,7 +364,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 4. Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern \(e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match\).
 5. Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.
 
-## Build & Deploy 
+## Build & Deploy
 
 ### V10.1 Code Integrity Controls
 
@@ -411,11 +407,11 @@ Listed here are key requirements. Check the Verification domain below and make s
 2. Verify that an inventory catalog is maintained of all third party libraries in use.
 3. Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application.
 
-## Verification 
+## Verification
 
 ### V2.1 Password Security Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that user set passwords are at least 12 characters in length.
 2. Verify that passwords 64 characters or longer are permitted.
@@ -432,14 +428,14 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V2.2 General Authenticator Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
 2. Verify that the use of weak authenticators \(such as SMS and email\) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise.
 
 ### V2.5 Credential Recovery Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that a system generated initial activation or recovery secret is not sent in clear text to the user.
 2. Verify password hints or knowledge-based authentication \(so-called "secret questions"\) are not present.
@@ -448,13 +444,13 @@ Listed here are key requirements. Check the Verification domain below and make s
 5. Verify that if an authentication factor is changed or replaced, that the user is notified of this event.
 6. Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as TOTP or other soft token, mobile push, or another offline recovery mechanism.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment.
 
 ### V2.6 Look-up Secret Verifier Requirements
 
-**Medium and high requirements:** 
+**Medium and high requirements:**
 
 1. Verify that lookup secrets can be used only once.
 2. Verify that lookup secrets have sufficient randomness \(112 bits of entropy\), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash.
@@ -462,25 +458,25 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V2.7 Out of Band Verifier Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that clear text out of band \(NIST "restricted"\) authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first.
 2. Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. 
 3. Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request.
 4. Verify that the out of band authenticator and verifier communicates over a secure independent channel.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify that the out of band verifier retains only a hashed version of the authentication code.
 2. Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy \(typically a six digital random number is sufficient\).
 
 ### V2.8 Single or Multi Factor One Time Verifier Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that time-based OTPs have a defined lifetime before expiring.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage.
 2. Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.
@@ -499,7 +495,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V2.10 Service Authentication Requirements
 
-**Medium and high requirements:** 
+**Medium and high requirements:**
 
 1. Verify that integration secrets do not rely on unchanging passwords, such as API keys or shared privileged accounts.
 2. Verify that if passwords are required, the credentials are not a default account.
@@ -508,37 +504,37 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V3.1 Fundamental Session Management Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify the application never reveals session tokens in URL parameters or error messages.
 
 ### V3.2 Session Binding Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify the application generates a new session token on user authentication.
 2. Verify that session tokens possess at least 64 bits of entropy.
 3. Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies \(see section 3.4\) or HTML 5 session storage.
 
- **Medium and high requirements only:** 
+   **Medium and high requirements only:**
 
-1. Verify that session token are generated using approved cryptographic algorithms.
+4. Verify that session token are generated using approved cryptographic algorithms.
 
 ### V3.3 Session Logout and Timeout Requirements
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties.
 2. If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period.
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login \(if present\), and any relying parties.
 2. Verify that users are able to view and log out of any or all currently active sessions and devices.
 
 ### V3.4 Cookie-based Session Management
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify that cookie-based session tokens have the 'Secure' attribute set.
 2. Verify that cookie-based session tokens have the 'HttpOnly' attribute set.
@@ -548,7 +544,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V3.5 Token-based Session Management
 
-**Medium and high requirements only:** 
+**Medium and high requirements only:**
 
 1. Verify the application does not treat OAuth and refresh tokens — on their own — as the presence of the subscriber and allows users to terminate trust relationships with linked applications.
 2. Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations.
@@ -563,7 +559,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V3.7 Defenses Against Session Management Exploits
 
-**Low, medium and high requirements:** 
+**Low, medium and high requirements:**
 
 1. Verify the application ensures a valid login session or requires reauthentication or secondary verification before allowing any sensitive transactions or account modifications.
 
@@ -727,8 +723,4 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 1. Verify that regular backups of important data are performed and that test restoration of data is performed.
 2. Verify that backups are stored securely to prevent data from being stolen or corrupted.
-
-### 
-
-
 
