@@ -1,16 +1,16 @@
 # ASVS V4 SDLC Split \(rus\)
 
-**Low - First steps, automated, or whole of portfolio view** 
+**Требования низкого уровня - первые шаги** 
 
-An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists. Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications. Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.
+Приложение достигает первого уровня, если оно адекватно защищено от уязвимостей, которые легко обнаружить, они перечислены в OWAST Top 10 и похожих чек-листах. Уровень 1 является абсолютным минимумом, к которому все приложения должны стремиться. Выполнение этих требований также полезно в качестве первого шага в многоэтапной разработке или когда приложение не хранит или обрабатывает конфиденциальные данные и не нуждается в более тщательном контроле уровней 2 или 3. Контроль первого уровня может быть достигнут с использованием автоматизированных средств или вручную без доступа к исходному коду. Предполагается, что уровень 1 является минимумом, требуемым для всех приложений. Угрозы приложению, вероятнее всего, будут исходить от атакующих, которые используют простые техники для поиска простых уязвимостей, в отличии от атакующих, которые специально фокусируются на том, чтобы взломать приложение. Если ваше приложение обрабатывает ценные данные, то вы, вероятнее всего, не захотите останавливаться на первом уровне. 
 
-**Medium - Most applications** 
+**Требования среднего уровня - большинство приложений**
 
-An application achieves ASVS Level 2 \(or Standard\) if it adequately defends against most of the risks associated with software today. Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks. OWASP Application Security Verification Standard 4.0 11 Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+Приложение достигает уровня 2 \(стандартного уровня\), если оно адекватно защищено против большинства рисков, связанных с программным обеспечением. Достижение уровня 2 гарантирует, что контроль безопасности присутствует, эффективен и используется в приложении. Уровень 2, обычно, подходит для приложений, которые обрабатывают значительные B2B транзакции, включая те, которые связаны с информацией о здравоохранении, обеспечивают конфиденциальные или критичные бизнес-функции или обрабатывают важные активы, или приложения, которые используются в индустриях, в которых целостность является критичным фактором для защиты бизнеса, как, например, необходимость предотвратить действия читеров или взлом игр в игровой индустрии. Атаковать приложения второго уровня обычно будут опытные и мотивированные хакеры, сфокусированные на определенных целях и использующие высокоэффективные в поиске слабых мест в приложении средства и техники.
 
-**High - High value, high assurance, or high safety** 
+**Требования высокого уровня - высокая ценность, высокая надежность или высокая безопасность** 
 
-ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc. Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 \(or Advanced\) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design. An application at ASVS Level 3 requires more in depth analysis or architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way \(to facilitate resiliency, scalability, and most of all, layers of security\), and each module \(separated by network connection and/or physical instance\) takes care of its own security responsibilities \(defense in depth\), that need to be properly documented. Responsibilities include controls for ensuring confidentiality \(e.g. encryption\), integrity \(e.g. transactions, input validation\), availability \(e.g. handling load gracefully\), authentication \(including between systems\), non-repudiation, authorization, and auditing \(logging\).
+Уровень 3 является самым высоким. Обычно, он используется для приложений, которые требуют значительного уровня проверки безопасности, как те приложения, которые используются в военной сфере, здравоохранении и безопасности, критичной инфраструктуре и прочих. Организациям может потребоваться уровень 3 для приложений, которые выполняют критичные функции, где отказ системы может иметь ощутимое влияние на работу организации или даже на ее выживание. Приложение достигает уровня 3 \(продвинутый уровень\) если оно адекватно защищено от продвинутых уязвимостей и демонстрирует принципы хорошего дизайна безопасности. Приложение третьего уровня требует большей глубины анализа архитектуры, кода и тестирования, нежели на других уровнях. Безопасное приложение разделяется на модули \(чтобы улучшить устойчивость, масштабируемость и уровни безопасности\) и каждый модуль \(разделенный сетевыми соединениями и / или физическими носителями\) отвечает за свою безопасность самостоятельно \(глубинная защита\), что тщательно документировано. Ответственность включает в себя контроль обеспечения конфиденциальности \(т.н. шифрование\), целостности \(транзакции, валидация ввода\), доступности \(хорошая работа с нагрузкой\), аутентификации \(в том числе, между системами\), неапеллируемости, авторизации и аудита \(логирование\).
 
 ## Менеджмент 
 
@@ -68,13 +68,13 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 
 1. Все бизнес процессы, включая аутентификацию, управление сессиями, управление доступом устойчивы к атакам "time-of-check" и "time-of-use race conditions"
 
-### \*V1.2 Аутентификация
+### V1.2 Аутентификация
 
 **Средние и высокие требования:**
 
 1. Во всех приложениях, компонентах, сервисах и на всех серверах используются уникальные или специальных низкопривилегированные учетные записи операционной системы
 2. Используется аутентификация в коммуникациях между компонентами приложений, включая API, промежуточное ПО и уровни данных. Компоненты должны иметь привилегии не выше необходимого минимума. 
-3. \*Приложение использует единый проверенный и безопасный механизм аутентификации, он может быть расширен для использования строгой аутентификации, имеет подробное логирование для обнаружения зловредных действий с аккаунтов. 
+3. Приложение использует единый проверенный и безопасный механизм аутентификации, он может быть расширен для использования строгой аутентификации, имеет подробное логирование для обнаружения зловредных действий с аккаунтов. 
 4. \*Все пути аутентификации и API контроля идентификации производят последовательный контроль безопасности аутентификации и нет иных небезопасных альтернатив для аутентификации. 
 
 ### V1.4 Управление доступом
@@ -147,11 +147,11 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 1. Поддерживается регистрация и использование выбранных пользователями устройств аутентификации, как, например токены U2F или FIDO. 
 2. При приближении окончания срока действия аутентификатора, инструкции по обновлению отправляются пользователю с учетом достаточного времени для прохождения процедуры обновления. 
 
-### \*V2.4 Хранение учетных данных 
+### V2.4 Хранение учетных данных 
 
 **Средние и высокие требования:**
 
-1. \*Пароли хранятся в форме, устойчивой к офлайн атакам. Пароли должны быть хешированы с добавлением "соли" с использованием утвержденной функции шифрования ключа или функции хеширования пароля. Эти функции берут пароль, соль и фактор стоимости на вход, когда генерируют хэш пароля. 
+1. \*Пароли хранятся устойчивом к офлайн атакам виде. Пароли должны быть хешированы с добавлением "соли" с использованием утвержденной функции шифрования ключа или функции хеширования пароля. Эти функции берут пароль, соль и фактор стоимости на вход, когда генерируют хэш пароля. 
 2. Соль содержит в себе не менее 32 битов и была создана рандомно для минимизации возможности повторного использования этой соли среди хранимых хешей. Для каждого набора учетных данных хранится уникальное значение соли и сгенерированный хэш. 
 3. Если используется PBKDF2, количество итераций должно быть велико настолько, насколько позволяет производительность верификационного сервера, что часто составляет 100 000 итераций. 
 4. Если используется bcrypt, фактор работы должен быть высоким настолько, насколько это позволяет производительность сервера, что часто составляет минимум 13 единиц. 
@@ -445,22 +445,22 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 
 1. Если данные для мультифакторной аутентификации утеряны, то для восстановления требуется данных и действий не меньше, чем при регистрации. 
 
-### \*\*\*V2.6 Look-up Secret Verifier Requirements
+### V2.6 Look-up секреты
 
 **Medium and high requirements:** 
 
-1. Verify that lookup secrets can be used only once.
-2. Verify that lookup secrets have sufficient randomness \(112 bits of entropy\), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash.
-3. Verify that lookup secrets are resistant to offline attacks, such as predictable values.
+1. Lookup-секреты могут быть использованы только единожды. 
+2. Lookup-секреты имеют достаточную случайность \(112 бит энтропии\) или менее 112 битов энтропии с применением значения соли с уникальным 32-битным значением и односторонним хешированием. 
+3. Lookup-секреты устойчивы к офлайн-атакам, например, перебор значений для поиска закономерности. 
 
-### \*\*\*V2.7 Out of Band Verifier Requirements
+### V2.7 Out of Band верификатор
 
 **Low, medium and high requirements:** 
 
-1. Verify that clear text out of band \(NIST "restricted"\) authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first.
-2. Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. 
-3. Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request.
-4. Verify that the out of band authenticator and verifier communicates over a secure independent channel.
+1. 2. Verify that clear text out of band \(NIST "restricted"\) authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first.
+3. Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. 
+4. Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request.
+5. Verify that the out of band authenticator and verifier communicates over a secure independent channel.
 
 **Medium and high requirements only:** 
 
