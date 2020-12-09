@@ -1,4 +1,4 @@
-# ASVS V4 Checklists
+# ASVS V4 Checklists \(Original without descriptions\)
 
 ## V1: Architecture, Design and Threat Modeling Requirements
 

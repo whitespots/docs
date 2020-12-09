@@ -13,9 +13,6 @@
 ---
 
 * [SDLC \(Secure Development Lifecycle\)](sdlc-secure-development-lifecycle.md)
-* [ASVS V4 Checklists](asvs-v4-checklists.md)
-* [ASVS V4 SDLC Split](asvs-v4-sdlc-split/README.md)
-  * [ASVS V4 SDLC Split \(rus\)](asvs-v4-sdlc-split/asvs-v4-sdlc-split-rus.md)
 
 ## Practices implementation
 
@@ -56,7 +53,10 @@
     * [Secrets management](practices-implementation/design/best-practices-for-developers/secrets-management.md)
     * [File upload](practices-implementation/design/best-practices-for-developers/file-upload/README.md)
       * [Загрузка файлов](practices-implementation/design/best-practices-for-developers/file-upload/zagruzka-failov.md)
-  * [Security requirements](practices-implementation/design/security-requirements.md)
+  * [Security requirements](practices-implementation/design/security-requirements/README.md)
+    * [ASVS V4 Checklists \(Original without descriptions\)](practices-implementation/design/security-requirements/asvs-v4-checklists.md)
+    * [ASVS V4 SDLC Split](practices-implementation/design/security-requirements/asvs-v4-sdlc-split/README.md)
+      * [ASVS V4 SDLC Split \(rus\)](practices-implementation/design/security-requirements/asvs-v4-sdlc-split/asvs-v4-sdlc-split-rus.md)
   * [Design review](practices-implementation/design/design-review.md)
 * [Implementation](practices-implementation/implementation/README.md)
   * [Code review with static analysers](practices-implementation/implementation/code-review.md)
