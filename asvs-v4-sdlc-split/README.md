@@ -194,7 +194,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 7. Verify that the application sanitizes, disables, or sandboxes user-supplied SVG scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject.
 8. Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar.
 
-### \*\*\*Maybe it better suits verification\*\*\*V5.3 Output encoding and Injection Prevention Requirements
+### V5.3 Output encoding and Injection Prevention Requirements
 
 **Low, medium and high requirements:**
 
