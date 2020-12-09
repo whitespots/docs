@@ -125,7 +125,7 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 1. Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification.
 
-**High only requirements:**
+**High requirements only:**
 
 1. Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent \(such as connected keys with a push to authenticate\), or at higher AAL levels, client-side certificates.
 2. Verify that where a credential service provider \(CSP\) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints.
