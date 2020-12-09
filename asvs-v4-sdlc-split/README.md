@@ -53,6 +53,10 @@ Listed here are key requirements. Check the Verification domain below and make s
 
 ### V1.10 Malicious Software Architectural Requirements
 
+**Medium & High requirements:**
+
+1. Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes.
+
 ### V1.11 Business Logic Architectural Requirements
 
 **Medium requirements:**
