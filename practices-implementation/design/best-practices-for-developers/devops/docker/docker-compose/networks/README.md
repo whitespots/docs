@@ -23,6 +23,6 @@ When using the host network driver, be sure to check which application ports are
 {% endhint %}
 
 {% hint style="success" %}
-Host networks are best when the network stack should not be isolated from the Docker host, but you want other aspects of the container to be isolated. See our article on host network driver to check how it works. 
+Host networks are best when the network stack should not be isolated from the Docker host, but you want other aspects of the container to be isolated. See our article on [host network driver](host-network-driver/) to check how it works. 
 {% endhint %}
 
