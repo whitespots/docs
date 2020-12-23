@@ -1,6 +1,4 @@
-# Networks
-
-### Network drivers🔗 <a id="network-drivers"></a>
+# Network drivers
 
 Docker’s networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality. See docker networking overview on [Docker Docs page](https://docs.docker.com/network/). 
 

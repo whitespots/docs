@@ -25,7 +25,7 @@
         * [Running Docker in rootless mode in ubuntu](practices-implementation/design/best-practices-for-developers/devops/docker/running-docker-in-rootless-mode-in-ubuntu/README.md)
           * [Запуск docker в режиме rootless на ubuntu](practices-implementation/design/best-practices-for-developers/devops/docker/running-docker-in-rootless-mode-in-ubuntu/zapusk-docker-v-rezhime-rootless-na-ubuntu.md)
         * [Docker-compose](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/README.md)
-          * [Networks](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/README.md)
+          * [Network drivers](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/README.md)
             * [Host network driver](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/host-network-driver/README.md)
               * [Host network driver \(rus\)](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/host-network-driver/host-network-driver-rus.md)
             * [Bridge network driver](practices-implementation/design/best-practices-for-developers/devops/docker/docker-compose/networks/bridge-network-driver/README.md)
