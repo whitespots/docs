@@ -22,7 +22,7 @@ Business target:
 
 **Security practices**
 
-{% page-ref page="practices-implementation/design/design-review.md" %}
+{% page-ref page="practices-implementation/design/design-review/" %}
 
 It can be helpful here, if your team has any questions:
 
@@ -46,7 +46,7 @@ Details:
 
 **Security practices**
 
-{% page-ref page="practices-implementation/design/design-review.md" %}
+{% page-ref page="practices-implementation/design/design-review/" %}
 
 It can be helpful here, if your team has any questions:
 
